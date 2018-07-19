@@ -14,11 +14,7 @@ public class LinkedListStack {
 	
 	//Check whether stack is empty.
 	public boolean isEmpty() {
-		if(top==null) {
-			return true;
-		}
-		else
-			return false;
+		return top == null;
 	}	
 	
 	//Pushes item at the top stack
