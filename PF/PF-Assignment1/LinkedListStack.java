@@ -32,7 +32,7 @@ public class LinkedListStack {
 	
 	//Pops the item at the top of stack.
 	public int pop() {
-		if (isEmpty()==true) {
+		if (isEmpty()) {
 			System.out.println("Stack is empty. Nothing to pop.");
 			return -1;
 		}
