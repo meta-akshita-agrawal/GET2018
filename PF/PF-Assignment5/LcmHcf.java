@@ -29,13 +29,6 @@ public class LcmHcf {
 		number = (number1 * number2)/hcf(number1,number2);
 		return number;
 	}
-	
-	
-	
-	public static void main(String[] args) {
-		LcmHcf obj = new LcmHcf();
-		
-		System.out.println(obj.lcm(366, 60));
-	}
+
 	
 }
