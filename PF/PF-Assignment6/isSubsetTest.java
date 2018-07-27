@@ -1,42 +1,70 @@
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
-import java.util.Collection;
-
-
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
 
 
-@RunWith(Parameterized.class)
 public class isSubsetTest {
 
-	private IntSet obj1;
-	private IntSet obj2;
-	private boolean check;
-
 	
-	public isSubsetTest(IntSet obj1, IntSet obj2,boolean check){
-		this.obj1 = obj1;
-		this.obj2 = obj2;
-		this.check = check;
+	@Test
+	public void ordinary(){
+		
+		IntSet obj1 = new IntSet(new int[]{3,25,67,123});
+		IntSet obj2 = new IntSet(new int[]{3,25});
+		boolean check = true;
+		assertEquals(obj1.isSubSet(obj2),check);
 	}
 	
+	//if both sets are same
+	@Test
+	public void wholeSubSet(){
+		
+		IntSet obj1 = new IntSet(new int[]{3,25,67,123});
+		IntSet obj2 = new IntSet(new int[]{3,25,67,123});
+		boolean check = true;
+		assertEquals(obj1.isSubSet(obj2),check);
+	}
 	
-	@Parameters
-	public static Collection<Object[]> input(){
-		return Arrays.asList(new Object[][]{
-				{new IntSet(new int[]{25,67,3,123}) , new IntSet(new int[]{67,3}), true},
-				{new IntSet(new int[]{25,67,3,123}) , new IntSet(new int[]{67,4}), false}
-				
-		});
+	//if only one element is there in 2nd set and it is member of 1st set.
+	@Test
+	public void oneElement(){
+		
+		IntSet obj1 = new IntSet(new int[]{3,25,67,123});
+		IntSet obj2 = new IntSet(new int[]{25});
+		boolean check = true;
+		assertEquals(obj1.isSubSet(obj2),check);
 	}
 	
 	@Test
-	public void evaluate(){
+	public void negative(){
+		
+		IntSet obj1 = new IntSet(new int[]{3,25,67,123});
+		IntSet obj2 = new IntSet(new int[]{25,123});
+		boolean check = true;
+		assertNotEquals(obj1.isSubSet(obj2),check);
+	}
+	
+	//set should not be empty
+	@Test(expected = AssertionError.class)
+	public void empty(){
+		
+		IntSet obj1 = new IntSet(new int[]{3,25,67,123});
+		IntSet obj2 = new IntSet(new int[]{});
+		boolean check = true;
 		assertEquals(obj1.isSubSet(obj2),check);
 	}
+	
+	//set should be sorted otherwise assertion error
+	@Test(expected = AssertionError.class)
+	public void notSorted() {
+		new IntSet(new int[] { 100, 3, 25, 67 });
+	}
+
+	//set should not contain duplicates otherwise assertion error.
+	@Test(expected = AssertionError.class)
+	public void duplicates() {
+		new IntSet(new int[] { 100, 100, 25, 67 });
+	}
+	
 	
 }
