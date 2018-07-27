@@ -6,11 +6,29 @@ public class Marksheet {
 	int[] grades;
 
 	/**
+	 * Initialize array grades with user input
+	 * Stores number of students
+	 * Stores grade of each student
+	 * This method is invoked at the start of main method 
+	 */
+	public void inputGrades()
+	{		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number of students.");
+		int numOfStudents = sc.nextInt();
+
+		grades = new int[numOfStudents];
+		System.out.println("Enter grades of each student");
+		for (int i = 0; i < numOfStudents; i++) {
+			grades[i] = sc.nextInt();
+		}
+	}
+	/**
 	 * calculates average of all grades of students
 	 * @param an array of students grades, requires that grade lies between 0 to 100 inclusive
 	 * @return average such that floating point value is Upto 2 decimal
 	 */
-	double averageGrades(int[] grades)throws ArithmeticException{
+	double averageGrades()throws ArithmeticException{
 		double average = 0;
 		for (int value : grades) {
 			average += value;
@@ -25,7 +43,7 @@ public class Marksheet {
 	 * @return an integer maximum
 	 * @throws ArithmeticException
 	 */
-	int maxGrade(int[] grades) throws ArithmeticException{
+	int maxGrade() throws ArithmeticException{
 		int maximum = 0;
 		for (int value : grades) {
 			if (maximum < value) {
@@ -41,7 +59,7 @@ public class Marksheet {
 	 * @return an integer minimum
 	 * @throws ArithmeticException
 	 */
-	int minGrade(int[] grades) throws ArithmeticException{
+	int minGrade() throws ArithmeticException{
 		int minimum = grades[0];
 		for (int value : grades) {
 			if (minimum > value) {
@@ -57,7 +75,7 @@ public class Marksheet {
 	 * @return percentage such that floating point value is Upto 2 decimal
 	 * @throws ArithmeticException
 	 */
-	double studentsPassed(int[] grades) throws ArithmeticException{
+	double studentsPassed() throws ArithmeticException{
 		int numOfStudentsPass = 0;
 		double percentage = 0.0;
 		for (int value : grades) {
@@ -70,22 +88,10 @@ public class Marksheet {
 	}
 
 	
-	public static void main(String[] args) {
-		
-		int[] grades;
-		
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter number of students.");
-		int numOfStudents = sc.nextInt();
-
-		grades = new int[numOfStudents];
-		System.out.println("Enter grades of each student");
-		for (int i = 0; i < numOfStudents; i++) {
-			grades[i] = sc.nextInt();
-		}
-
+	public static void main(String[] args) {		
 		Marksheet obj = new Marksheet();
-
+		Scanner sc = new Scanner(System.in);
+		obj.inputGrades();
 		do{
 			System.out.println("---------------------------------------");
 			System.out.println("1.Get average of all grades.");
@@ -97,23 +103,24 @@ public class Marksheet {
 	
 			System.out.println("ENTER YOUR CHOICE:");
 
+		
 		int choice = sc.nextInt();
+		
 		sc.nextLine();
 
 			switch (choice) {
 
 			case 1:
-				System.out.println("AVERAGE:" + obj.averageGrades(grades));
+				System.out.println("AVERAGE:" + obj.averageGrades());
 				break;
 			case 2:
-				System.out.println("MAXIMUM" + obj.maxGrade(grades));
+				System.out.println("MAXIMUM" + obj.maxGrade());
 				break;
 			case 3:
-				System.out.println("MINIMUM" + obj.minGrade(grades));
+				System.out.println("MINIMUM" + obj.minGrade());
 				break;
 			case 4:
-				System.out.println("PERCENTAGE:" + obj.studentsPassed(grades)
-						+ "%");
+				System.out.println("PERCENTAGE:" + obj.studentsPassed() + "%");
 				break;
 			case 5:
 				System.exit(0);
@@ -124,7 +131,7 @@ public class Marksheet {
 			}
 
 		} while (true);
-
+		
 	}
 
 }
