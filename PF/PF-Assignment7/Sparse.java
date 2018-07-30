@@ -88,7 +88,7 @@ public class Sparse {
 	 */
 	int[][] add(Sparse s1) {
 
-		int[][] arrayA = sparseArray;
+		int[][] arrayA = this.sparseArray;
 		int[][] arrayB = s1.sparseArray;
 		int[][] result = new int[arrayA.length + arrayB.length][3]; // resultant matrix can have maximum of both matrices sum
 		
@@ -179,7 +179,7 @@ public class Sparse {
 	 * @return an array, of multiplied sparse matrix
 	 */
 	int[][] multiply(Sparse s1) {
-		int[][] arrayA = sparseArray;
+		int[][] arrayA = this.sparseArray;
 		int[][] arrayB = s1.sparseArray;
 		
 		int maxLength = colSize * s1.rowSize; //MaxLength can be product of column size of first to row size of second
