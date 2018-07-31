@@ -1,0 +1,4 @@
+
+public enum ShapeType {
+	SQAURE, RECTANGLE, CIRCLE, TRIANGLE,REGULARPOLYGON;
+}
