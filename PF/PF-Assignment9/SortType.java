@@ -1,4 +1,4 @@
 
-public enum Sort {
+public enum SortType {
 	PERIMTEER,AREA,ORIGINDISTANCE;
 }
