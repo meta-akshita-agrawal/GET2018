@@ -1,9 +1,18 @@
 import java.util.List;
 
-
+/**
+ * Factory class for creating objects of shape 
+ * square, rectangle, circle,etc
+ */
 public class ShapeFactory {
 	
-	
+	/**
+	 * Creates a shape 
+	 * @param type, of a shape object
+	 * @param point, (x,y)
+	 * @param parameters, list of parameters which could be different for different shape types
+	 * @return objects of shape
+	 */
 	public static Shape createShape(ShapeType type, Point point,List<Double> parameters){
 		switch(type){
 		

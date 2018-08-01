@@ -3,86 +3,70 @@ import java.util.List;
 
 public class Screen {
 
-	ArrayList<Shape> shapeList = new ArrayList<>();
+	ArrayList<Shape> shapeList = new ArrayList<>();//shape list for storing all shape objects
+	Point point; 
 
+	/**
+	 * Creates a shape using factory object
+	 * @param shape type
+	 * @param point, (x,y)
+	 * @param parameters, list of parameters which could be different for different shape types
+	 */
 	public void createShape(ShapeType type, Point point, List<Double> parameters) {
 
 		Shape obj = ShapeFactory.createShape(type, point, parameters);
 		shapeList.add(obj);
 	}
 
+	/**
+	 * Deletes oldest shape object of the given type
+	 * @param shape type
+	 */
 	public void deleteShape(ShapeType type) {
 		for (Shape value : shapeList) {
 			if (value.getType() == type) {
 				shapeList.remove(value);
-				return;
 			}
 		}
 	}
 
-	public void deleteAll() {
-		shapeList.clear();
-	}
-
-	public double originDistance(Point point) {
-		double distanceX = point.x * point.x;
-		double distanceY = point.y * point.y;
-		double distanceSum = distanceX + distanceY;
-		return Math.sqrt(distanceSum);
-	}
-
-	public ArrayList<Shape> sort(SortType basedOn) {
-		Shape temp;
-		switch (basedOn) {
-		case AREA:
-			for (int i = 0; i < this.shapeList.size() - 1; i++) {
-				for (int j = 0; j < this.shapeList.size() - i - 1; j++) {
-					if (shapeList.get(j).getArea() > shapeList.get(j + 1).getArea()) {
-						temp = shapeList.get(j);
-						shapeList.set(j, shapeList.get(j + 1));
-						shapeList.set(j + 1, temp);
-					}
-				}
-			}
-			return this.shapeList;
-		case ORIGINDISTANCE:
-			for (int i = 0; i < this.shapeList.size() - 1; i++) {
-				for (int j = 0; j < this.shapeList.size() - i - 1; j++) {
-					Point point1 = shapeList.get(j).getOrigin();
-					Point point2 = shapeList.get(j + 1).getOrigin();
-					if (originDistance(point1) > originDistance(point2)) {
-						temp = shapeList.get(j);
-						shapeList.set(j, shapeList.get(j + 1));
-						shapeList.set(j + 1, temp);
-					}
-				}
-			}
-			return this.shapeList;
-		case PERIMTEER:
-			for (int i = 0; i < this.shapeList.size() - 1; i++) {
-				for (int j = 0; j < this.shapeList.size() - i - 1; j++) {
-					if (shapeList.get(j).getPerimeter() > shapeList.get(j + 1).getPerimeter()) {
-						temp = shapeList.get(j);
-						shapeList.set(j, shapeList.get(j + 1));
-						shapeList.set(j + 1, temp);
-					}
-				}
-			}
-			return this.shapeList;
-		default:
-			return null;
-
-		}
-	}
-
-	public ArrayList<Shape> deleteByType(ShapeType type) {
+	/**
+	 * Deletes all shape object of given shape type
+	 * @param shape type
+	 */
+	public void deleteByType(ShapeType type) {
 		for (int i = 0; i < this.shapeList.size(); i++) {
 			if (type == this.shapeList.get(i).getType()) {
 				this.shapeList.remove(i);
+				i--;
 			}
 		}
-		return this.shapeList;
 	}
 
+	/**
+	 * Sorts a list according to different categories
+	 * like area, perimeter, origin distance of a shape object
+	 * @param basedOn, sorting type AREA, PERIMETER, ORIGIN DISTANCE
+	 */
+	public void sort(SortType basedOn) {
 
+		switch (basedOn) {
+		case AREA:
+			AreaSort areaObj = new AreaSort();
+			areaObj.executeSort(this.shapeList);
+			break;
+		case ORIGINDISTANCE:
+			DistanceSort distanceObj = new DistanceSort();
+			distanceObj.executeSort(this.shapeList);
+			break;
+		case PERIMTER:
+			PerimeterSort perimObj = new PerimeterSort();
+			perimObj.executeSort(this.shapeList);
+			break;
+		default:
+			break;
+
+		}
+
+	}
 }
