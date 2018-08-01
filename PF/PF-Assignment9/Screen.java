@@ -31,7 +31,7 @@ public class Screen {
 		return Math.sqrt(distanceSum);
 	}
 
-	public ArrayList<Shape> sort(Sort basedOn) {
+	public ArrayList<Shape> sort(SortType basedOn) {
 		Shape temp;
 		switch (basedOn) {
 		case AREA:
