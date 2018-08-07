@@ -4,11 +4,11 @@
  * next, pointer to the next node
  */
 class Node{
-	int data;
+	String data;
 	Node next;
 	
 	//Parameterized Constructor
-	public Node(int item) {
+	public Node(String item) {
 		data = item;
 		next = null;
 	}
