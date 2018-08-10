@@ -1,13 +1,15 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 
+import java.util.List;
 
 public interface Dictionary {
 
-	void add(KeyValueNode keyValuePair);
-	void delete(String key);
-	String getValueByKey(String key);
-	LinkedHashMap<String,String> getSortedList(KeyValueNode root,LinkedHashMap<String,String> list);
-	LinkedHashMap<String,String> getRangedSortedList(String key1, String key2);
+	void add(KeyValueNode keyValuePair);// adds a word meaning pair in the dictionary
+
+	void delete(String key);// deletes a word meaning pair in the dictionary
+
+	String getValueByKey(String key);// gets meaning of a word
+
+	List<KeyValueNode> getSortedList();// gets sorted list of dictionary
+
+	List<KeyValueNode> getRangedSortedList(String key1, String key2);// gets dictionary between 2 strings key1 and key2
 }

@@ -6,6 +6,7 @@ public class KeyValueNode {
 	KeyValueNode left;
 	KeyValueNode right;
 	
+	//KeyValueNode for word meaning pair
 	public KeyValueNode(String word, String meaning) {
 	
 		this.word = word;
