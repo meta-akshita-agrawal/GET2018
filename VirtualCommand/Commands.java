@@ -1,4 +1,3 @@
-
 public interface Commands{
 
 	//executes a command on current folder

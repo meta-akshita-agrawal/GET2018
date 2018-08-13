@@ -2,6 +2,14 @@ import java.util.List;
 
 public class Find implements Commands {
 
+	
+	@Override
+	public Folder execute(Folder currentFolder, String folderName) {
+		executePrint(currentFolder,folderName);
+		return currentFolder;
+	}
+	
+	
 	/**
 	 * Finds a folder by its whole name or part of it
 	 * It shows various folder in the current directory related to the specified folder name
@@ -9,7 +17,7 @@ public class Find implements Commands {
 	 * @param folderName, a part of name or whole name 
 	 * @return current folder after execution
 	 */
-	public Folder execute(Folder currentFolder, String folderName) {
+	public Folder executePrint(Folder currentFolder, String folderName) {
 
 		List<Folder> children = currentFolder.getChildren(); //retrieves children or sub folders of current folder
 

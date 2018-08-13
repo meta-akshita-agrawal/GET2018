@@ -1,8 +1,10 @@
-import java.util.Scanner;
+
 
 //Factory used to create objects for different commands
 public class CommandFactory {
 
+	Commands cmdObj;
+	
 	/**
 	 * Executes a command
 	 * @param currentFolder
@@ -11,47 +13,37 @@ public class CommandFactory {
 	 * @param root, root of the file hierarchy
 	 * @return current folder after execution
 	 */
-	public static Folder execute(Folder currentFolder,String command, Scanner sc, Folder root) {
+	public static Commands execute(String[] command) {
 		
 		
-		switch(command){
+		switch(command[0]){
 		
 		case "mkdir":
 			Commands mkdirObj = new Mkdir();
-			String folderName = sc.next();
-			mkdirObj.execute(currentFolder,folderName);
-			break;
+			return mkdirObj;
 		case "cd":
 			Commands cdObj = new Cd();
-			String changedDirName = sc.next();
-			currentFolder = cdObj.execute(currentFolder,changedDirName);
-			break;
+			return cdObj;
 		case "ls":
 			Commands lsObj = new ls();
-			lsObj.execute(currentFolder,null);
-			break;
+			return lsObj;
 		case "bk":
 			Commands bkObj = new back();
-			currentFolder = bkObj.execute(currentFolder,null);
-			break;
+			return bkObj;
 		case "find":
 			Commands findObj = new Find();
-			String findDirName = sc.next(); 
-			findObj.execute(currentFolder,findDirName);
-			break;
+			return findObj;
 		case "tree":
 			Commands treeObj = new Tree();
-			treeObj.execute(root, null);
-			break;
+			return treeObj;
 		case "exit":
-			sc.close();
 			System.exit(0);
 			break;
 		default:
 			System.out.println("no such command");
 			break;
 		}
-		return currentFolder;
+		return null;
 	}
 	
 }

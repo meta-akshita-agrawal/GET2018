@@ -7,7 +7,18 @@ public class Tree implements Commands{
 					//just used for indentation of  tree
 	
 	@Override
-	public Folder execute(Folder currentFolder,String folderName) {
+	public Folder execute(Folder currentFolder,
+			String folderName) {
+		Folder root = currentFolder.getRoot(currentFolder);
+		executePrint(root);
+		return currentFolder;
+	}
+	
+	
+	
+	
+	public Folder executePrint(Folder currentFolder) {
+		
 		
 		List<Folder> children = currentFolder.getChildren();
 		
@@ -23,10 +34,11 @@ public class Tree implements Commands{
 			System.out.println(currentFolder.getFolderName());
 			
 			counter++;
-			execute(currentFolder,null);//RECURSION AS DFS
+			executePrint(currentFolder);//RECURSION AS DFS
 			counter--;
 		}
 		return currentFolder;
 		
 	}
+					
 }

@@ -80,4 +80,12 @@ public class Folder {
 		}
 	}
 	
+	public Folder getRoot(Folder currentFolder){
+		
+		while(currentFolder.getParent() != null){
+			currentFolder = currentFolder.getParent();
+		}
+		
+		return currentFolder;
+	}
 }
