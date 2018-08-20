@@ -1,5 +1,5 @@
 /*A function to calculate number of orders in a month. 
-Month and year will be input parameter to function./*
+Month and year will be input parameter to function.*/
 
 DELIMITER $$
 
@@ -16,7 +16,7 @@ begin
 end;
 
 /* a function to return month in a year having maximum orders. 
-Year will be input parameter./*
+Year will be input parameter.*/
 
 DELIMITER $$
 
