@@ -19,14 +19,15 @@ CREATE FUNCTION max_order_month(order_year int(4)) returns int(2)
 	deterministic
 begin
 
-	declare order_month int(2);
+	declare max_order_month int(2);
     
-    set order_month =(select month(`Date`)
-	from `order`
-	group by month(`Date`)
-    order by count(*) desc
-    limit 1);
+    set max_order_month = (select order_month 
+			   from ( SELECT MONTH(o.`Date`) AS order_month ,COUNT(o.`OrderID`) As Counted 
+				  FROM  `order` o
+				  WHERE YEAR(o.`Date`)= order_year
+   				  GROUP BY MONTH(o.`Date`)) AS t
+                                  having max(t.counted));
                     
-	return (order_month);
+	return (max_order_month);
 
 end;
