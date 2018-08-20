@@ -21,12 +21,11 @@ begin
 
 	declare max_order_month int(2);
     
-    set max_order_month = (select order_month 
-			   from ( SELECT MONTH(o.`Date`) AS order_month ,COUNT(o.`OrderID`) As Counted 
-				  FROM  `order` o
-				  WHERE YEAR(o.`Date`)= order_year
-   				  GROUP BY MONTH(o.`Date`)) AS t
-                                  having max(t.counted));
+    set max_order_month = (select month(`Date`)
+				from `order`
+				group by month(`Date`)
+    				order by count(*) desc
+    				limit 1);
                     
 	return (max_order_month);
 
