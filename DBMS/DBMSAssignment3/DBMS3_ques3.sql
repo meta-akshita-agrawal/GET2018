@@ -47,14 +47,14 @@ SET SQL_SAFE_UPDATES = 0;
 /*Marks the products as Inactive which are not ordered in last 90 days.*/
 update `product`
 SET `Status` = 'Inactive'
-WHERE `ProductID` in
+WHERE `ProductID` not in
 (SELECT p.`ProductID`
 	FROM (SELECT * FROM `product`) as p
 	INNER JOIN `ordered_product` op
 	ON p.`ProductID` = op.`ProductID`
 	INNER JOIN `order` o
 	ON o.`OrderID` = op.`OrderID`
-    WHERE o.`Date` <= curdate() - 90);
+    WHERE o.`Date` >= curdate() - 90);
 
 
 SELECT c.`Category_Name`, count(*) as count 
