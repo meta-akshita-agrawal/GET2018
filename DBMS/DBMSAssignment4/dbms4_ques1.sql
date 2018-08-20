@@ -1,3 +1,6 @@
+/*A function to calculate number of orders in a month. 
+Month and year will be input parameter to function./*
+
 DELIMITER $$
 
 CREATE FUNCTION orders_count(order_month int(2), order_year int(4)) RETURNS int(3)
@@ -12,6 +15,8 @@ begin
 	return (order_count);
 end;
 
+/* a function to return month in a year having maximum orders. 
+Year will be input parameter./*
 
 DELIMITER $$
 
@@ -23,6 +28,7 @@ begin
     
     set max_order_month = (select month(`Date`)
 				from `order`
+				where year(`Date`) = order_year
 				group by month(`Date`)
     				order by count(*) desc
     				limit 1);
