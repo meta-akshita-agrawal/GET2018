@@ -17,3 +17,10 @@ select case
   from `order` o
 GROUP BY ranges;
 
+/*Display the Categories along with number of products under each category.
+*/
+select count(*), c.Category_Name
+from category c
+join product_category pc
+on c.categoryID = pc.CategoryID
+group by pc.ProductID;
