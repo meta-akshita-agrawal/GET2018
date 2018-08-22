@@ -24,6 +24,13 @@ SELECT * FROM `category`
 WHERE `CategoryID` NOT IN (SELECT `Parent_CategotyID` FROM `category`
                            WHERE `Parent_CategotyID` IS NOT NULL);
 
+/*Displays all Id, Title and Parent Category Title for all the Categories listed, sorted by Parent Category Title and then Category Title.*/
+SELECT c.CategoryID as ci, c.Category_Name as cn, 
+IFNULL(m.Category_Name, 'Top Category') as top_category
+FROM category c
+LEFT JOIN category m
+ON c.Parent_CategoryID = m.CategoryID;
+
 
 /*Display Product Title, Price & Description which falls into particular category Title (i.e. “Mobile”)
 */
