@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderResultSet {
+public class CategoryResultSet {
 
-	private static List<Order> orderList;
+	private static List<Category> categoryList;
 
 	/**
 	 * Adding values of result set in POJO class list
@@ -15,19 +15,17 @@ public class OrderResultSet {
 	 * @return, list
 	 * @throws SQLException
 	 */
-	public static List<Order> getOrderResultList(ResultSet rs)
+	public static List<Category> getOrderResultList(ResultSet rs)
 			throws SQLException {
 
 		try {
-			orderList = new ArrayList<Order>();
+			categoryList = new ArrayList<Category>();
 			while (rs.next()) {
-				orderList.add(new Order(rs.getInt(1), rs.getDate(2), rs
-						.getFloat(3)));
+				categoryList.add(new Category(rs.getString(2), rs.getInt(1)));
 			}
-			return orderList;
+			return categoryList;
 		} catch (NullPointerException ne) {
 			throw new NullPointerException("Resultset is empty");
 		}
 	}
-
 }

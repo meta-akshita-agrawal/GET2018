@@ -1,7 +1,8 @@
+package jdbc;
 
+import java.util.Date;
 
-import java.sql.Date;
-
+//POJO ORDER
 public class Order {
 
 	int orderID;
@@ -34,21 +35,5 @@ public class Order {
 
 	public int getShopperID() {
 		return shopperID;
-	}
-
-	public void setOrderID(int orderID) {
-		this.orderID = orderID;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
-	public void setTotalPrice(float totalPrice) {
-		this.totalPrice = totalPrice;
-	}
-	public void setShopperID(int shopperID) {
-		this.shopperID = shopperID;
 	}
 }
