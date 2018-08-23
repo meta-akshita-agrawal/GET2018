@@ -11,14 +11,6 @@ ON s.ProductID = p.ProductID
 WHERE s.`Quantity` != 0
 ORDER BY s.`AddedDate` DESC;
 
-/*Display Id, Title, Parent Category Title of all the leaf Categories */
-SELECT * FROM `category` c
-WHERE `Parent_CategotyID` OR `CategoryID` IN (SELECT `CategoryID` FROM `category`
-                              WHERE c.`Parent_CategotyID` IS NULL
-                              ORDER BY `Parent_CategotyID`);
-                            
-
-
 /*Display Id, Title, Parent Category Title of all the leaf Categories*/
 SELECT * FROM `category`
 WHERE `CategoryID` NOT IN (SELECT `Parent_CategotyID` FROM `category`
