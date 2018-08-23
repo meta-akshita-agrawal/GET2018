@@ -56,12 +56,16 @@ WHERE `ProductID` not in
 	ON o.`OrderID` = op.`OrderID`
     WHERE o.`Date` >= curdate() - 90);
 
-
-SELECT c.`Category_Name`, count(*) as count 
+/*Given a category search keyword, displays all the Products present in this category/categories*/				 
+SELECT p.ProductName
 FROM `category` c
 INNER JOIN `product_category` pc
 on pc.`CategoryID` = c.`CategoryID`
-group by pc.`CategoryID`, c.`Parent_CategoryID`;
+Inner join `product` p
+on p.`ProductID` = pc.`ProductID`
+where c.`Category_Name` = "Laptops"
+group by pc.`ProductID`;
+
 
 /*Display top 10 Items which were cancelled most.
 */
