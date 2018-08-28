@@ -158,7 +158,7 @@
 				
 				var contactNumber = document.myForm.ContactNumber;
 				
-				if(contactNumber.value.length>10 || /[^0-9]/.test(contactNumber.value)){
+				if(contactNumber.value.length!=10 || /[^0-9]/.test(contactNumber.value)){
 					contactNumber.style.borderColor="red";
 					return false;
 				}
@@ -168,8 +168,12 @@
 				
 			}
 			
-			function formValidate(){
+			function companyValidate(){
+				var companyName= document.myForm.
+			}
 			
+			function formValidate(){
+				return FirstNameValidate() && LastNameValidate() && emailValidate() && passwordValidate() && confrimPasswordValidate() && contactNumberValidate();
 			}
 		
 			
@@ -179,7 +183,7 @@
 	</header>
 	
 	<body>
-		<form name="myForm">
+		<form name="myForm" onsubmit="return formValidate()">
 			
 			<table align="center" cellspacing="20px" id="formTable">
 				<col width="200px">
