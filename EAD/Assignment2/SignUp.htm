@@ -1,0 +1,91 @@
+<!doctype HTML>
+<html>
+
+	<!--HEADER-->
+	<header>
+		<table width="100%">
+			<tr>
+				<td><img src = "Images/HogwartsLogo.jpg" height = "80 px" id="logoImage"></td>
+				<td align="right" id="topanchor">
+					<a href = " ">Harry Potter</a>
+					<a href = " ">Cursed Child</a>
+					<a href = " ">Fantastic Beasts</a>
+					<a href = "HogwartsForm.htm">Contact Us</a>
+					<a href = "Login.htm">Login</a>
+					<a href = "Signup.htm">SignUp</a>
+				</td>			
+			</tr>
+		</table>
+		<hr>
+		
+		<!--INCLUDING CSS STYLESHEET-->
+		<link rel="stylesheet" href="Stylesheet/Hogwarts.css">
+		<!--INCLUDING SCRIPT-->
+		<script type="text/javascript" src="Scripts/SignUp.js">
+		</script>
+	
+	</header>
+	
+	<!--BODY-->
+	<body>
+		<form name="myForm" onsubmit="return formValidate()" action="Login.htm" method="GET">
+			
+			<table align="center" cellspacing="20px" id="formTable">
+				<tr>
+					<td>First Name</td>
+					<td><input type="text" name="firstName" onblur="firstNameValidate()" /><span id="firstNameMessage"></span></td>	
+				</tr>
+				
+				<tr>
+					<td>Last Name</td>
+					<td><input type="text" name="lastName" onblur="lastNameValidate()" /><span id="lastNameMessage"></span></td>
+				</tr>	
+				
+				<tr>
+					<td>Email</td>
+					<td><input type="email" name="email" placeholder="abc@xyz.lmn" onblur="emailValidate()"/><span id="emailMessage"></span></td>
+				</tr>
+				
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="password" onblur="passwordValidate()" /><span id="passwordMessage"></span></td>
+				</tr>
+				
+				<tr>
+					<td>Confrim Password</td>
+					<td><input type="password" name="cpassword" onblur="confrimPasswordValidate()"/><span id="cpasswordMessage"></span></td>
+				</tr>
+				
+				<tr>
+					<td>Contact Number</td>
+					<td><input type="text" name="contactNumber" onblur="contactNumberValidate()"/><span id="contactNumberMessage"></span></td>
+				</tr>
+				
+				<tr>
+					<td>Company/Institution</td>
+					<td>
+						<select required name="companyName">
+							<option value="">None</option>
+							<option value="metacube">Metacube</option>
+							<option value="Google">Google</option>
+							<option value="Amazon">Amazon</option>
+							<option value="Appirio">Appirio</option>
+							<option value="Accenture">Accenture</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="submit"/></td>
+				</tr>
+				
+			</table>
+		</form>
+	</body>
+	
+	<!--FOOTER-->
+	<footer>
+		<hr>
+		<div align="center">©Copyright 2018-19|All Rights Reserved|Metacube Training</div>
+	</footer>
+</html>
