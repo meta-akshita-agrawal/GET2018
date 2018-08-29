@@ -16,170 +16,10 @@
 		</table>
 		<hr>
 		
-		<style>
-			
-			*{
-				margin-left:0;
-				margin:right:0;
-				margin-top:0;
-			}
-		
-			#logoImage{
-				border-radius: 50%
-			}
-			
-			input{
-				border-radius : 10%
-			}
-			
-			#formTable{
-				margin-left:auto;
-				margin-right:auto;
-			}
-			
-			body{
-				font-family: comic sans ms;
-			}
-			
-			header{
-				background-color: #6495ed;
-			}
-			
-			#topanchor a{
-				text-decoration:none;
-				font-size:20px;
-				padding:10px;
-				color:white;
-			}
-			
-			span{
-				font-family:arial;
-				font-size:12px;
-			}
-			
-			
-		</style>
-	
-	
-		<script>
-		
-			function FirstNameValidate(){
-
-				var firstName = document.myForm.FirstName;	
-				var errorMessage= document.getElementById("FirstNameMessage");
-				
-				if(firstName.value.length<2 || /[^a-zA-Z]/.test(firstName.value)){
-		
-					firstName.style.borderColor="red";
-					errorMessage.style.color="red";
-					errorMessage.innerHTML="Length should be greater than 2 and should be non-numeric";
-					return false;
-				}
-				
-				errorMessage.innerHTML="";
-				firstName.style.borderColor="green";
-				
-				return true;
-			}
-		
-			function LastNameValidate(){
-			
-				var lastName = document.myForm.LastName;	
-				var errorMessage= document.getElementById("LastNameMessage");
-			
-				if(lastName.value.length<2 || /[^a-zA-Z]/.test(lastName.value)){
-		
-					lastName.style.borderColor="#ff0000";
-					errorMessage.style.color="red";
-					errorMessage.innerHTML="Length should be greater than 2 and should be non-numeric";
-					
-					return false;
-				}
-				
-				lastName.style.borderColor="#008000";
-				errorMessage.innerHTML="";
-				
-				return true;
-			}
-			
-			function emailValidate(){
-				
-				var email= document.myForm.email;
-				var errorMessage= document.getElementById("emailMessage");
-				
-				if(email.value.length>4 && email.value.includes("@") && email.value.includes(".") && email.value.indexOf("@") != 0 && email.value.indexOf(".") !=0 && email.value.indexOf(".")-email.value.indexOf("@") != 1){
-					email.style.borderColor="green";
-					errorMessage.innerHTML="";
-					return true;
-				}
-				
-				email.style.borderColor="red";
-				errorMessage.style.color="red";
-				errorMessage.innerHTML="email should contain atleast 5 characters and should be in format abc@xyz.lmn";
-				return false;
-				
-			}
-			
-			function passwordValidate(){
-				
-				var password = document.myForm.password;
-				var errorMessage = document.getElementById("passwordMessage");
-				
-				if(password.value.length>=8 && /[A-Z]/.test(password.value) && /[a-z]/.test(password.value) && /[0-9]/.test(password.value) && /[a-zA-z0-9]/.test(password.value)){
-					password.style.borderColor="green";
-					errorMessage.innerHTML="";
-					return true;
-				}
-				
-				password.style.borderColor="red";
-				errorMessage.style.color="red";
-				errorMessage.innerHTML="Password should contain atleast an uppercase, lowercase and should have minimum 8 characters";
-				return false;
-				
-			}
-			
-			function confrimPasswordValidate(){
-				
-				var cpassword = document.myForm.cpassword;
-				var errorMessage = document.getElementById("cpasswordMessage");
-				
-				if(document.myForm.password.value == cpassword.value){
-					cpassword.style.borderColor="green";	
-					errorMessage.innerHTML="";
-					return true;
-				}
-				
-				cpassword.style.borderColor="red";
-				errorMessage.innerHTML="Both passwords should be same"
-				return false;
-			}
-			
-			function contactNumberValidate(){
-				
-				var contactNumber = document.myForm.ContactNumber;
-				
-				if(contactNumber.value.length!=10 || /[^0-9]/.test(contactNumber.value)){
-					contactNumber.style.borderColor="red";
-					return false;
-				}
-				
-				contactNumber.style.borderColor="green";
-				return true;
-				
-			}
-			
-			function companyValidate(){
-				var companyName= document.myForm.
-			}
-			
-			function formValidate(){
-				return FirstNameValidate() && LastNameValidate() && emailValidate() && passwordValidate() && confrimPasswordValidate() && contactNumberValidate();
-			}
-		
-			
-		
+		<link rel="stylesheet" href="SignUp.css">
+		<script type="text/javascript" src="SignUp.js">
 		</script>
-		
+	
 	</header>
 	
 	<body>
@@ -190,12 +30,12 @@
 				<col width="800px">
 				<tr>
 					<td>First Name</td>
-					<td><input type="text" name="FirstName" onblur="FirstNameValidate()" /><span id="FirstNameMessage"></span></td>	
+					<td><input type="text" name="firstName" onblur="firstNameValidate()" /><span id="firstNameMessage"></span></td>	
 				</tr>
 				
 				<tr>
 					<td>Last Name</td>
-					<td><input type="text" name="LastName" onkeyup="LastNameValidate()" /><span id="LastNameMessage"></span></td>
+					<td><input type="text" name="lastName" onkeyup="lastNameValidate()" /><span id="lastNameMessage"></span></td>
 				</tr>	
 				
 				<tr>
@@ -215,13 +55,14 @@
 				
 				<tr>
 					<td>Contact Number</td>
-					<td><input type="text" name="ContactNumber" onkeyup="contactNumberValidate()"/><span id="ContactNumberMessage"></span></td>
+					<td><input type="text" name="contactNumber" onkeyup="contactNumberValidate()"/><span id="contactNumberMessage"></span></td>
 				</tr>
 				
 				<tr>
 					<td>Company/Institution</td>
 					<td>
-						<select>
+						<select name="companyName" onblur="companyValidate()">
+							<option value="" selected>Choose here</option>
 							<option value="metacube">Metacube</option>
 							<option value="Google">Google</option>
 							<option value="Amazon">Amazon</option>
