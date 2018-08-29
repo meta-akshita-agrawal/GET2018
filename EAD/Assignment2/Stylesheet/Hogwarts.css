@@ -1,0 +1,54 @@
+
+
+#logoImage{
+	border-radius: 50%
+}
+
+input{
+	border-radius : 10%
+}
+
+input[type="text"]{
+	width:200px;
+	height:30px;
+}
+
+input[type="submit"]{
+	background-color: #6495ed; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#formTable{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+body{
+	font-family: comic sans ms;
+}
+
+header{
+	background-color: #6495ed;
+}
+
+#topanchor a{
+	text-decoration:none;
+	font-size:20px;
+	padding:10px;
+	color:white;
+}
+
+span{
+	font-family:arial;
+	font-size:12px;
+}
+
+
