@@ -43,6 +43,16 @@
    	 <url-pattern>/ShowAllEmployee</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+   	 <display-name>SearchEmployeeServlet</display-name>
+   	 <servlet-name>SearchEmployee</servlet-name>
+   	 <servlet-class>com.servlets.SearchEmployee</servlet-class>
+    </servlet>
+    <servlet-mapping>
+   	 <servlet-name>SearchEmployee</servlet-name>
+   	 <url-pattern>/SearchEmployee</url-pattern>
+    </servlet-mapping>
+    
     <welcome-file-list>
    	 <welcome-file>index.html</welcome-file>
     </welcome-file-list>
