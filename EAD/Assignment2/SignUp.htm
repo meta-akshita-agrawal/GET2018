@@ -1,9 +1,11 @@
 <!doctype HTML>
 <html>
+
+	<!--HEADER-->
 	<header>
 		<table width="100%">
 			<tr>
-				<td><img src = "HogwartsLogo.jpg" height = "80 px" id="logoImage"></td>
+				<td><img src = "Images/HogwartsLogo.jpg" height = "80 px" id="logoImage"></td>
 				<td align="right" id="topanchor">
 					<a href = " ">Harry Potter</a>
 					<a href = " ">Cursed Child</a>
@@ -16,18 +18,19 @@
 		</table>
 		<hr>
 		
-		<link rel="stylesheet" href="SignUp.css">
-		<script type="text/javascript" src="SignUp.js">
+		<!--INCLUDING CSS STYLESHEET-->
+		<link rel="stylesheet" href="Stylesheet/Hogwarts.css">
+		<!--INCLUDING SCRIPT-->
+		<script type="text/javascript" src="Scripts/SignUp.js">
 		</script>
 	
 	</header>
 	
+	<!--BODY-->
 	<body>
-		<form name="myForm" onsubmit="return formValidate()">
+		<form name="myForm" onsubmit="return formValidate()" action="Login.htm" method="GET">
 			
 			<table align="center" cellspacing="20px" id="formTable">
-				<col width="200px">
-				<col width="800px">
 				<tr>
 					<td>First Name</td>
 					<td><input type="text" name="firstName" onblur="firstNameValidate()" /><span id="firstNameMessage"></span></td>	
@@ -35,34 +38,34 @@
 				
 				<tr>
 					<td>Last Name</td>
-					<td><input type="text" name="lastName" onkeyup="lastNameValidate()" /><span id="lastNameMessage"></span></td>
+					<td><input type="text" name="lastName" onblur="lastNameValidate()" /><span id="lastNameMessage"></span></td>
 				</tr>	
 				
 				<tr>
 					<td>Email</td>
-					<td><input type="email" name="email" placeholder="abc@xyz.lmn" onkeyup="emailValidate()"/><span id="emailMessage"></span></td>
+					<td><input type="email" name="email" placeholder="abc@xyz.lmn" onblur="emailValidate()"/><span id="emailMessage"></span></td>
 				</tr>
 				
 				<tr>
 					<td>Password</td>
-					<td><input type="password" name="password" onkeyup="passwordValidate()" /><span id="passwordMessage"></span></td>
+					<td><input type="password" name="password" onblur="passwordValidate()" /><span id="passwordMessage"></span></td>
 				</tr>
 				
 				<tr>
 					<td>Confrim Password</td>
-					<td><input type="password" name="cpassword" onkeyup="confrimPasswordValidate()"/><span id="cpasswordMessage"></span></td>
+					<td><input type="password" name="cpassword" onblur="confrimPasswordValidate()"/><span id="cpasswordMessage"></span></td>
 				</tr>
 				
 				<tr>
 					<td>Contact Number</td>
-					<td><input type="text" name="contactNumber" onkeyup="contactNumberValidate()"/><span id="contactNumberMessage"></span></td>
+					<td><input type="text" name="contactNumber" onblur="contactNumberValidate()"/><span id="contactNumberMessage"></span></td>
 				</tr>
 				
 				<tr>
 					<td>Company/Institution</td>
 					<td>
-						<select name="companyName" onblur="companyValidate()">
-							<option value="" selected>Choose here</option>
+						<select required name="companyName">
+							<option value="">None</option>
 							<option value="metacube">Metacube</option>
 							<option value="Google">Google</option>
 							<option value="Amazon">Amazon</option>
@@ -80,6 +83,7 @@
 		</form>
 	</body>
 	
+	<!--FOOTER-->
 	<footer>
 		<hr>
 		<div align="center">©Copyright 2018-19|All Rights Reserved|Metacube Training</div>
