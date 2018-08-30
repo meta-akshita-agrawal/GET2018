@@ -16,7 +16,17 @@ import jdbc.Connection;
 
 public class SearchEmployee extends HttpServlet{
 
+	private static final long serialVersionUID = 1L;
+
+	private static final String SEARCH_QUERY="select * from employee where `First Name`=? and `Last Name`=?;";
+	
+	/**
+	 * Handles request coming from HTML form
+	 * @param req, request
+	 * @param res, response after submitting HTML form
+	 */
 	public void doGet (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		
 		PrintWriter out = res.getWriter();
 		
 		java.sql.Connection conn=null;
@@ -26,12 +36,16 @@ public class SearchEmployee extends HttpServlet{
 		try {
 			
 			conn = Connection.getConnection();//Allocate a database 'Connection' object
-			psmt = conn.prepareStatement("select * from employee where `First Name`=? and `Last Name`=?;");
+			psmt = conn.prepareStatement(SEARCH_QUERY);
 			
+			//bind variables to request parameters
 			psmt.setString(1, req.getParameter("firstName"));
 			psmt.setString(2,req.getParameter("lastName"));
 			
 			rs = psmt.executeQuery();
+			
+			//writes HTML to the response
+			out.println("<html><body>");
 			out.println("<table border=1>");
 			out.println("<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Age</th><tr>");
 			while (rs.next()) {
@@ -42,13 +56,11 @@ public class SearchEmployee extends HttpServlet{
                  out.println("<tr><td>" + firstName + "</td><td>" + lastName + "</td><td>" + email + "</td><td>" + age + "</td></tr>"); 
 			}
 			out.println("</table>");
-			out.println("</html></body>");
+			out.println("</body></html>");
 			
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			try {
@@ -56,7 +68,6 @@ public class SearchEmployee extends HttpServlet{
 				psmt.close();
 				rs.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
