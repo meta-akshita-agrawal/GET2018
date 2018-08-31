@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Registration Page</title>
+	</head>
+	<body>
+		<form name="myForm" action="Registration" method="post">
+			
+			<table align="center" cellspacing="20px" id="formTable">
+				<tr>
+					<td>First Name</td>
+					<td><input type="text" name="firstName" onblur="firstNameValidate()" /><span id="firstNameMessage"></span></td>	
+				</tr>
+				
+				<tr>
+					<td>Last Name</td>
+					<td><input type="text" name="lastName" onblur="lastNameValidate()" /><span id="lastNameMessage"></span></td>
+				</tr>	
+				
+				<tr>
+					<td>Email</td>
+					<td><input type="email" name="email" placeholder="abc@xyz.lmn" onblur="emailValidate()"/><span id="emailMessage"></span></td>
+				</tr>
+				
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="password" onblur="passwordValidate()" /><span id="passwordMessage"></span></td>
+				</tr>
+				
+				<tr>
+					<td>Confrim Password</td>
+					<td><input type="password" name="cpassword" onblur="confrimPasswordValidate()"/><span id="cpasswordMessage"></span></td>
+				</tr>
+				
+				<tr>
+					<td>Contact Number</td>
+					<td><input type="text" name="contactNumber" onblur="contactNumberValidate()"/><span id="contactNumberMessage"></span></td>
+				</tr>
+				
+				<tr>
+					<td>Company/Institution</td>
+					<td>
+						<select required name="companyName">
+							<option value="">None</option>
+							<option value="metacube">Metacube</option>
+							<option value="Google">Google</option>
+							<option value="Amazon">Amazon</option>
+							<option value="Appirio">Appirio</option>
+							<option value="Accenture">Accenture</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="Register"/></td>
+				</tr>
+				
+			</table>
+		</form>
+	</body>
+</html>
