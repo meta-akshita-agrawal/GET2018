@@ -15,13 +15,14 @@ public class MySQLUserDao implements UserDao {
 		return mySQLUserDao;
 	}
 	
-	List<User> userList = new ArrayList<User>();
 	
-	static final String GET_ALL_QUERY = "select * from user;";
-	static final String GET_USER_BY_EMAIL_QUERY = "select * from user where email = ?;";
-	static final String INSERT_QUERY = "insert into user(`First Name`,`Last Name`,`Password`,`Email`,`Contact Number`,`Company`) values(?,?,?,?,?,?);)";
-	static final String UPDATE_QUERY = "update user set `First Name`= ?, `Last Name` = ?, `Password` = ?, `Contact Number`=?,`Company` = ? where `email` = ?";
-	static final String DELETE_QUERY = "delete from `user` where `email` = ?";
+	
+	static final String GET_ALL_QUERY = "select * from user.user;";
+	static final String GET_USER_BY_EMAIL_QUERY = "select * from user.user where email = ?;";
+	static final String INSERT_QUERY = "insert into user.user(`First Name`,`Last Name`,`Password`,`Email`,`Contact Number`,`Company`) values(?,?,?,?,?,?);";
+	static final String UPDATE_QUERY = "update user.user set `First Name`= ?, `Last Name` = ?, `Password` = ?, `Contact Number`=?,`Company` = ? where `email` = ?";
+	static final String DELETE_QUERY = "delete from user.user where `email` = ?";
+	static final String GET_USERLIST_BY_COMPANY_NAME = "select email from user.user where `Company` = ? and email != ?;";
 	
 	Connection conn = null;
 	PreparedStatement psmt = null;
@@ -30,6 +31,8 @@ public class MySQLUserDao implements UserDao {
 	@Override
 	public List<User> getAll() {
 		
+		List<User> userList = new ArrayList<User>();
+		
 		try{
 			conn = ConnectionHelper.getConnection();
 			psmt = conn.prepareStatement(GET_ALL_QUERY);
@@ -37,7 +40,7 @@ public class MySQLUserDao implements UserDao {
 			rs = psmt.executeQuery();
 			
 			while(rs.next()){
-				userList.add(new User(rs.getString("First Name"),rs.getString("Last Name"),rs.getString("Password"),rs.getString("email"),rs.getString("Contact Number"),rs.getString("Compnay")));
+				userList.add(new User(rs.getString("First Name"),rs.getString("Last Name"),rs.getString("Password"),rs.getString("email"),rs.getString("Contact Number"),rs.getString("Company")));
 			}
 			
 		}catch (NumberFormatException e) {
@@ -67,8 +70,9 @@ public class MySQLUserDao implements UserDao {
 			
 			rs = psmt.executeQuery();
 			
-			return new User(rs.getString("First Name"),rs.getString("Last Name"),rs.getString("Password"),rs.getString("email"),rs.getString("Contact Number"),rs.getString("Compnay"));
-			
+			while(rs.next()){
+				return new User(rs.getString("First Name"),rs.getString("Last Name"),rs.getString("Password"),rs.getString("email"),rs.getString("Contact Number"),rs.getString("Company"));
+			}
 		}catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -178,6 +182,45 @@ public class MySQLUserDao implements UserDao {
 		
 		return 0;
 		
+	}
+
+
+	@Override
+	public List<String> getEmailListByCompanyName(String companyName,String email) {
+		
+		List<String> emailList = new ArrayList<String>();
+		
+		try{
+			conn = ConnectionHelper.getConnection();
+			psmt = conn.prepareStatement(GET_USERLIST_BY_COMPANY_NAME);
+			
+			psmt.setString(1,companyName);
+			psmt.setString(2,email);
+			
+			System.out.println(companyName);
+			System.out.println(email);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()){
+				emailList.add(rs.getString("email"));
+				System.out.println("asdbh");
+			}
+			
+		}catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				conn.close();
+				psmt.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	
+		}
+		return emailList;
 	}
 
 }

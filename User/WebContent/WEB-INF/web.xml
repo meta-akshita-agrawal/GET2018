@@ -28,7 +28,7 @@
 
 	<filter>  
   		<filter-name>LoginFilter</filter-name>  
-  		<filter-class>LoginFilter</filter-class>  
+  		<filter-class>com.metacube.user.filters.LoginFilter</filter-class>  
   	</filter>  
   	<filter-mapping>  
  		<filter-name>LoginFilter</filter-name>  
@@ -47,7 +47,7 @@
   
   	<filter>  
   		<filter-name>ProfileFilter</filter-name>  
-  		<filter-class>ProfileFilter</filter-class>  
+  		<filter-class>com.metacube.user.filters.ProfileFilter</filter-class>  
   	</filter>  
   	<filter-mapping>  
  		<filter-name>ProfileFilter</filter-name>  

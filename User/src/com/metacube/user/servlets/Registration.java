@@ -28,13 +28,13 @@ public class Registration extends HttpServlet{
 		String contactNumber = req.getParameter("contactNumber");
 		String companyName = req.getParameter("companyName");
 		
-		Status insertionStatus = userFacade.insert(new User(firstName,lastName,email,password,contactNumber,companyName));
+		Status insertionStatus = userFacade.insert(new User(firstName,lastName,password,email,contactNumber,companyName));
 		
 		if(insertionStatus == Status.INSERTED){
 			out.println("Registration successfull");
 			HttpSession session = req.getSession();
 			session.setAttribute("name", email);
-			req.getRequestDispatcher("Profile").include(req, res);
+			req.getRequestDispatcher("Profile?visibility=visible").include(req, res);
 		}
 		else{
 			out.println("Error!");

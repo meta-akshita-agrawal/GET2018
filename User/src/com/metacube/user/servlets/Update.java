@@ -26,7 +26,8 @@ public class Update extends HttpServlet{
 		String contactNumber = req.getParameter("contactNumber");
 		String companyName = req.getParameter("companyName");
 		
-		Status updationStatus = userFacade.update(new User(firstName,lastName,email,password,contactNumber,companyName));
+		
+		Status updationStatus = userFacade.update(new User(firstName,lastName,password,email,contactNumber,companyName));
 		
 		if(updationStatus == Status.UPDATED){
 			out.println("Updation successfull");
