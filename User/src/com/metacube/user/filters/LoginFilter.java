@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.*;
+import javax.servlet.http.*;
 
 import com.metacube.user.facade.UserFacade;
 import com.metacube.user.pojo.User;
@@ -18,26 +19,28 @@ public class LoginFilter implements Filter {
 	public void destroy() {		
 	}
 
-	@SuppressWarnings("unused")
+
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res,
 			FilterChain chain) throws IOException, ServletException {
 		
-		PrintWriter out= res.getWriter();
+		HttpServletRequest request = (HttpServletRequest) req;
+		HttpServletResponse response = (HttpServletResponse) res;
 		
-		User user = userFacade.getUserByEmail(req.getParameter("Email"));
-		String password = user.getPassword();
+		PrintWriter out= response.getWriter();
+		
+		User user = userFacade.getUserByEmail(request.getParameter("email"));
 		
 		if(user == null){
 			out.println("Email does not exists. Create One");
-			req.getRequestDispatcher("index.html").include(req, res);  
+			request.getRequestDispatcher("index.html").include(request, response);  
 		}
-		else if(req.getParameter("Password").equals(password)){
-			chain.doFilter(req,res);
+		else if(request.getParameter("password").equals(user.getPassword())){
+			chain.doFilter(request,response);
 		}
 		else{
 			out.println("UserName or password error");
-			req.getRequestDispatcher("index.html").include(req, res);
+			request.getRequestDispatcher("index.html").include(request, response);
 		}
 		
 	}

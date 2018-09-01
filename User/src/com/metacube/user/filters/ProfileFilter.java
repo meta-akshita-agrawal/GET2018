@@ -6,11 +6,12 @@ import java.io.PrintWriter;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import com.metacube.user.facade.UserFacade;
+import com.metacube.user.pojo.User;
+
 public class ProfileFilter implements Filter {
 
-	@Override
-	public void destroy() {	
-	}
+	UserFacade userFacade = UserFacade.getInstance();
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
@@ -20,13 +21,19 @@ public class ProfileFilter implements Filter {
 		
 		HttpServletRequest req = (HttpServletRequest) request;
 		
-		HttpSession session = req.getSession();  
+		HttpSession session = req.getSession(false);  
 		
-		String email = (String)session.getAttribute("name");
-        
-		if(session!=null && email.equals(request.getParameter("Email"))){    
+		
+		User user = userFacade.getUserByEmail(req.getParameter("email"));
+		
+//		String email = (String)session.getAttribute("name");
+//       
+		System.out.println(req.getSession(false));
+		
+		if(session!=null){    
           
-			out.print("Hello, "+request.getParameter("First Name")+" Welcome to Profile");  
+			out.print("Hello, "+user.getFirstName()+" Welcome to Profile");  
+			chain.doFilter(request, response);
         }  
         else{  
             out.print("Please login first");  
@@ -37,6 +44,10 @@ public class ProfileFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {		
+	}
+	
+	@Override
+	public void destroy() {	
 	}
 
 }

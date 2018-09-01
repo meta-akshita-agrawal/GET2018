@@ -70,4 +70,8 @@ public class UserFacade{
 		
 		return null;
 	}
+	
+	public List<String> getEmailListByCompanyName(String companyName, String email){
+		return userDao.getEmailListByCompanyName(companyName, email);
+	}
 }
