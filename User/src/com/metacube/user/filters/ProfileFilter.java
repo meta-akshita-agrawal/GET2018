@@ -13,7 +13,6 @@ public class ProfileFilter implements Filter {
 
 	UserFacade userFacade = UserFacade.getInstance();
 
-	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		
@@ -42,11 +41,9 @@ public class ProfileFilter implements Filter {
         out.close(); 
 	}
 
-	@Override
 	public void init(FilterConfig arg0) throws ServletException {		
 	}
 	
-	@Override
 	public void destroy() {	
 	}
 

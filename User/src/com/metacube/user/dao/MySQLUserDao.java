@@ -28,7 +28,6 @@ public class MySQLUserDao implements UserDao {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	
-	@Override
 	public List<User> getAll() {
 		
 		List<User> userList = new ArrayList<User>();
@@ -59,7 +58,6 @@ public class MySQLUserDao implements UserDao {
 		return userList;
 	}
 
-	@Override
 	public User getUserByEmail(String email) {
 		
 		try{
@@ -89,7 +87,6 @@ public class MySQLUserDao implements UserDao {
 		return null;
 	}
 
-	@Override
 	public int insert(User user) {
 		
 		try{
@@ -123,7 +120,6 @@ public class MySQLUserDao implements UserDao {
 		
 	}
 
-	@Override
 	public int update(User user) {
 		try{
 			conn = ConnectionHelper.getConnection();
@@ -156,7 +152,6 @@ public class MySQLUserDao implements UserDao {
 		
 	}
 
-	@Override
 	public int delete(User user) {
 		try{
 			conn = ConnectionHelper.getConnection();
@@ -185,7 +180,6 @@ public class MySQLUserDao implements UserDao {
 	}
 
 
-	@Override
 	public List<String> getEmailListByCompanyName(String companyName,String email) {
 		
 		List<String> emailList = new ArrayList<String>();
