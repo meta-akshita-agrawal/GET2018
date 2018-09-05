@@ -9,12 +9,9 @@ public class TextEditor {
 		return word;
 	}
 
-	public void setWord(String word) {
-		this.word = word;
-	}
-
-	public void setSpellChecker(SpellChecker spellChecker) {
+	public TextEditor(SpellChecker spellChecker, String word) {
 		this.spellChecker = spellChecker;
+		this.word = word;
 	}
 
 	public SpellChecker getSpellChecker() {
