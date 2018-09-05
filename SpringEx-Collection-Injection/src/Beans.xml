@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="textEditor" class="com.metacube.training.TextEditor">
+		<property name="wordsList">
+			<list>
+				<value>word1</value>
+				<value>word2</value>
+				<value>word3</value>
+			</list>
+		</property>
+		
+		<property name="wordsSet">
+			<set>
+				<value>word1</value>
+				<value>word2</value>
+				<value>word3</value>
+			</set>
+		</property>
+		
+		<property name="spellCheckingMap">
+			<map>
+				<entry key="word1" value-ref="spellChecking1" />
+				<entry key="word2" value-ref="spellChecking2" />
+				<entry key="word3" value-ref="spellChecking3" />
+			</map>
+		</property>	
+	</bean>
+	
+	<!--
+	<bean id="word1" class="com.metacube.training.Word">
+		<property name="word" value="First Word"/>
+	</bean>
+	
+	<bean id="word2" class="com.metacube.training.Word">
+		<property name="word" value="Second Word"/>
+	</bean>
+	
+	<bean id="word3" class="com.metacube.training.Word">
+		<property name="word" value="Third Word"/>
+	</bean>
+	  -->
+
+
+	<bean id="spellChecking1" class="com.metacube.training.SpellChecker">
+	</bean>
+	
+	<bean id="spellChecking2" class="com.metacube.training.SpellChecker">
+	</bean>
+	
+	<bean id="spellChecking3" class="com.metacube.training.SpellChecker">
+	</bean>
+</beans>
