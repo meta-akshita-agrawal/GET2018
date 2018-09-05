@@ -1,11 +1,19 @@
 package com.metacube.advertismentWebServices.entity;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Advertisement {
 
-	private int advertisementID;
-	private String title;
-	private String description;
-	private int categoryID;
+    @XmlElement(name="advertisementID")
+	public int advertisementID;
+    @XmlElement(name="title")
+	public String title;
+    @XmlElement(name="description")
+	public String description;
+    @XmlElement(name="categoryID")
+	public int categoryID;
 	
 	public int getAdvertismentID() {
 		return advertisementID;

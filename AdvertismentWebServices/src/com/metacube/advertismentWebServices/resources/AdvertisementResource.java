@@ -1,5 +1,6 @@
 package com.metacube.advertismentWebServices.resources;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.*;
@@ -9,12 +10,16 @@ import com.metacube.advertismentWebServices.entity.Advertisement;
 import com.metacube.advertismentWebServices.facade.AdvertisementFacade;
 import com.metacube.advertismentWebServices.enums.*;
 
-@Path("/AdvertisementResource")
+@Path("/Advertisement")
 public class AdvertisementResource {
 
 	AdvertisementFacade advertisementFacade = AdvertisementFacade.getInstance();
+	public AdvertisementResource()
+	{}
+
 	
 	@PUT
+	@Path("/createAdvertisement")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String createAdvertisement(Advertisement advertisement){
@@ -29,15 +34,24 @@ public class AdvertisementResource {
 		return "error";
 	}
 	
-	@Path("/getAllAdvertisements")
+
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/advertisements")
+	@Produces("application/json")
 	public List<Advertisement> getAllAdvertisements(){
 		return advertisementFacade.getAllAdvertisements();
 	}
 	
+	@GET
+	@Path("/advertisements1")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getAllAdvertisements1(){
+		return "test";
+	}
+	
 	
 	@DELETE
+	@Path("/deleteAdvertisementById")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String deleteAdvertisementById(@PathParam("id") int id){
 		Status status = advertisementFacade.deleteAdvertisementById(id);
@@ -53,6 +67,7 @@ public class AdvertisementResource {
 	}
 	
 	@PUT
+	@Path("updateAdvertisementNameByCategoryId")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public String  updateAdvertisementNameByCategoryId(@PathParam("title") String title, @PathParam("id") int id){
 		
@@ -70,6 +85,7 @@ public class AdvertisementResource {
 	}
 	
 	@GET
+	@Path("getAdvertisementsByCategoryId")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Advertisement> getAdvertisementsByCategoryId(@PathParam("id") int id){
 		return advertisementFacade.getAdvertisementsByCategoryId(id);
