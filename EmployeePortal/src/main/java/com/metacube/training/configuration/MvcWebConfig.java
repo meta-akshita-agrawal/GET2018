@@ -61,6 +61,7 @@ public class MvcWebConfig implements WebMvcConfigurer{
 		
 	}
 	
+	@Bean
 	public DataSource dataSource(){
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
 		driverManagerDataSource.setDriverClassName(environment.getProperty(DRIVER));

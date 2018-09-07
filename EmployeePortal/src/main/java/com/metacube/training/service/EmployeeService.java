@@ -15,4 +15,6 @@ public interface EmployeeService{
 	boolean createEmployee(Employee employee);
 
 	Employee getEmployeeById(int id);
+	
+	List<Employee> searchEmployeeByName(String name);
 }

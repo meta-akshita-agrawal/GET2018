@@ -32,7 +32,7 @@ public class MySQLJobDao implements JobDao{
 
 	@Override
 	public boolean insert(Job job) {
-		return jdbcTemplate.update(INSERT_QUERY, job.getJobCode()) > 0;
+		return jdbcTemplate.update(INSERT_QUERY, job.getTitle()) > 0;
 	}
 
 	@Override

@@ -2,11 +2,14 @@ package com.metacube.training.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Employee {
 
 	private int employeeID;
 	private String firstName;
 	private String lastName;
+	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private Date dob;
 	private String gender;
 	private String contactNumber;

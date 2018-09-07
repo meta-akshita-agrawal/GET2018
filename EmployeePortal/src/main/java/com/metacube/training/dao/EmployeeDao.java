@@ -7,5 +7,5 @@ import com.metacube.training.model.Employee;
 public interface EmployeeDao extends BaseDao<Employee>{
 	
 	public Employee getEmployeeByID(int id);
-	public List<Employee> searchEmployeeByName(String name);
+	public List<Employee> getEmployeeByName(String name);
 }

@@ -2,22 +2,26 @@ package com.metacube.training.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Project {
 	private int id;
 	private String description;
-	private Date start_date;
-	private Date end_date;
+	@DateTimeFormat(pattern= "yyyy-MM-dd")
+	private Date startDate;
+	@DateTimeFormat(pattern= "yyyy-MM-dd")
+	private Date endDate;
 	public int getId() {
 		return id;
 	}
 	public String getDescription() {
 		return description;
 	}
-	public Date getStart_date() {
-		return start_date;
+	public Date getStartDate() {
+		return startDate;
 	}
-	public Date getEnd_date() {
-		return end_date;
+	public Date getEndDate() {
+		return endDate;
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -25,11 +29,11 @@ public class Project {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public void setStart_date(Date start_date) {
-		this.start_date = start_date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
-	public void setEnd_date(Date end_date) {
-		this.end_date = end_date;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 
 

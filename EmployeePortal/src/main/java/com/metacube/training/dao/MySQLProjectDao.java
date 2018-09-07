@@ -23,9 +23,9 @@ public class MySQLProjectDao implements ProjectDao{
 	
 	private static String SELECT_ALL_QUERY = "select * from employeeportal.project";
 	private static String INSERT_QUERY = "insert into employeeportal.project(description,start_date,end_date) values(?,?,?)";
-	private static String UPDATE_QUERY ="update employeeportal.project set description =?, start_date =?, end_date=?";
+	private static String UPDATE_QUERY ="update employeeportal.project set description =?, start_date =?, end_date=? where id=?";
 	private static String DELETE_QUERY = "delete from employeeportal.project where id= ?";
-	private static String SELECT_BY_ID_QUERY = "select * from where id=?";
+	private static String SELECT_BY_ID_QUERY = "select * from employeeportal.project where id=?";
 
 	@Override
 	public List<Project> getAll() {
@@ -34,12 +34,12 @@ public class MySQLProjectDao implements ProjectDao{
 
 	@Override
 	public boolean insert(Project project) {
-		return jdbcTemplate.update(INSERT_QUERY, project.getDescription(),project.getStart_date(),project.getEnd_date()) > 0;
+		return jdbcTemplate.update(INSERT_QUERY, project.getDescription(),project.getStartDate(),project.getEndDate()) > 0;
 	}
 
 	@Override
 	public boolean update(Project project) {
-		return jdbcTemplate.update(UPDATE_QUERY, project.getDescription(),project.getStart_date(),project.getEnd_date(),project.getId())>0;
+		return jdbcTemplate.update(UPDATE_QUERY, project.getDescription(),project.getStartDate(),project.getEndDate(),project.getId())>0;
 	}
 
 	@Override

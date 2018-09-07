@@ -3,14 +3,16 @@ package com.metacube.training.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.metacube.training.dao.EmployeeDao;
+import com.metacube.training.dao.MySQLEmployeeDao;
 import com.metacube.training.model.Employee;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService{
 
 	@Autowired
-	EmployeeDao employeeDao;
+	MySQLEmployeeDao employeeDao;
 	
 	@Override
 	public List<Employee> getAllEmployee() {
@@ -36,6 +38,11 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Override
 	public Employee getEmployeeById(int id) {
 		return employeeDao.getEmployeeByID(id);
+	}
+
+	@Override
+	public List<Employee> searchEmployeeByName(String name) {
+		return employeeDao.getEmployeeByName(name);
 	}
 
 }

@@ -36,7 +36,7 @@ public class MySQLEmployeeDao implements EmployeeDao{
 
 	@Override
 	public boolean insert(Employee employee) {
-		return jdbcTemplate.update(INSERT_QUERY,employee.getFirstName(), employee.getLastName(), employee.getDob(), employee.getContactNumber(), employee.getEmailID()) > 0;
+		return jdbcTemplate.update(INSERT_QUERY,employee.getFirstName(), employee.getLastName(), employee.getDob(),employee.getGender(), employee.getContactNumber(), employee.getEmailID()) > 0;
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class MySQLEmployeeDao implements EmployeeDao{
 	}
 
 	@Override
-	public List<Employee> searchEmployeeByName(String name) {
+	public List<Employee> getEmployeeByName(String name) {
 		return jdbcTemplate.query(SELECT_BY_NAME_QUERY, new Object[] {name}, new EmployeeMapper());
 	}
 
