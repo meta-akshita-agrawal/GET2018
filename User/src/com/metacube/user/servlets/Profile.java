@@ -28,7 +28,7 @@ public class Profile extends HttpServlet{
 				out.println("function enable(id){");
 					out.println("document.getElementById(id).disabled=false;");
 				out.println("}");
-				out.println("function enableAll(){");
+				out.println("function enableAll(){");//function to enable disable fields on click of edit button
 					out.println("enable('firstName');");
 					out.println("enable('lastName');");
 					out.println("enable('email');");
@@ -40,10 +40,10 @@ public class Profile extends HttpServlet{
 			out.println("<table width=100%>");
 				out.println("<tr>");
 					if(req.getParameter("visibility").equals("hidden")) {
-						out.println("<td><a href='Upload.html?email=" + req.getParameter("email") + "'><img src=\"images/default.png\" height=100px></td>");
+						out.println("<td><a href='Upload.html?email=" + req.getParameter("email") + "'><img src=\"images/default.png\" height=100px></td>");//shows default image in case of first login
 					}
 					else {
-						out.println("<td><a href='Upload.html?email=" + req.getParameter("email")+ "'><img src=\"images/" + req.getParameter("email") + ".png\" height=100px></td>");
+						out.println("<td><a href='Upload.html?email=" + req.getParameter("email")+ "'><img src=\"images/" + req.getParameter("email") + ".png\" height=100px></td>");//else image with email name
 					}
 					out.println("<td align='right' style=font-size:20px valign=bottom><a href=\"Logout\">Logout</a> <a href=\"Friends?email=" + user.getEmail() + "\">Friends</a></td>");					
 				out.println("</tr>");

@@ -5,6 +5,7 @@
   
   	<display-name>UserServlet</display-name>
   
+<!-- REGISTRATION SERVLET -->
 	<servlet>
 		<display-name>RegistrationServlet</display-name>
 		<servlet-name>Registration</servlet-name>
@@ -15,7 +16,7 @@
 		<url-pattern>/Registration</url-pattern>
 	</servlet-mapping>
 
-  
+<!-- LOGIN SERVLET AND ITS FILTER -->
 	<servlet>
 		<display-name>LoginServlet</display-name>
 		<servlet-name>Login</servlet-name>
@@ -35,6 +36,7 @@
   		<url-pattern>/Login</url-pattern>  
   	</filter-mapping>
   	
+<!-- PROFILE SERVLET AND ITS FILTER -->
   	<servlet>
 		<display-name>ProfileServlet</display-name>
 		<servlet-name>Profile</servlet-name>
@@ -56,6 +58,7 @@
 		<dispatcher>INCLUDE</dispatcher>
   	</filter-mapping>
   	
+<!-- UPDATION SERVLET -->
   	<servlet>
 		<display-name>UpdateServlet</display-name>
 		<servlet-name>Update</servlet-name>
@@ -66,6 +69,7 @@
 	 	<url-pattern>/Update</url-pattern>
 	 </servlet-mapping>
 
+<!-- LOGOUT SERVLET -->
 	<servlet>
 		<display-name>LogoutServlet</display-name>
 		<servlet-name>Logout</servlet-name>
@@ -76,6 +80,7 @@
 	 	<url-pattern>/Logout</url-pattern>
 	 </servlet-mapping>
 
+<!-- FRIENDS SERVLET -->
   	<servlet>
 		<display-name>FriendsServlet</display-name>
 		<servlet-name>Friends</servlet-name>
@@ -86,7 +91,7 @@
 	 	<url-pattern>/Friends</url-pattern>
 	 </servlet-mapping>
   	
-  	
+<!-- UPLOAD SERVLET -->  	
   	<servlet>  
 	<servlet-name>UploadServlet</servlet-name>  
 	<servlet-class>com.metacube.user.servlets.Upload</servlet-class>  
@@ -96,6 +101,7 @@
 	<url-pattern>/Upload</url-pattern>  
 	</servlet-mapping>  
   	
+ <!-- WELCOME PAGE -->
 	<welcome-file-list>
 	 	 <welcome-file>index.html</welcome-file>
 	</welcome-file-list>

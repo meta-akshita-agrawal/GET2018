@@ -7,71 +7,102 @@ import com.metacube.user.dao.UserDao;
 import com.metacube.user.enums.Status;
 import com.metacube.user.pojo.User;
 
-public class UserFacade{
+public class UserFacade {
 
 	private static UserFacade userFacade = new UserFacade();
-	
+
 	UserDao userDao = MySQLUserDao.getInstance();
-	
-	public static UserFacade getInstance(){
+
+	// Creates single instance of the class
+	public static UserFacade getInstance() {
 		return userFacade;
 	}
-	
-	public List<User> getAllUsers(){
+
+	/**
+	 * Gets all users
+	 * @return list of users
+	 */
+	public List<User> getAllUsers() {
 		return userDao.getAll();
 	}
-	
-	public Status insert(User user){
-		
+
+	/**
+	 * Inserts a new user
+	 * @param user
+	 * @return status
+	 */
+	public Status insert(User user) {
+
 		List<User> userList = userDao.getAll();
 		int result = userDao.insert(user);
-		
-		if(result==1){
+
+		if (result == 1) {
 			return Status.INSERTED;
 		}
-		
-		for(User tempUser: userList){
-			if(tempUser.getEmail().equals(user.getEmail())){
+
+		for (User tempUser : userList) {
+			if (tempUser.getEmail().equals(user.getEmail())) {
 				return Status.DUPLICATE;
 			}
 		}
-		
+
 		return Status.ERROR;
 	}
-	
-	public Status update(User user){
-		
+
+	/**
+	 * Updates details of a user
+	 * @param user
+	 * @return status
+	 */
+	public Status update(User user) {
+
 		int result = userDao.update(user);
-		
-		if(result==1){
+
+		if (result == 1) {
 			return Status.UPDATED;
 		}
 		return Status.NOT_FOUND;
 	}
-	
-	public Status delete(User user){
-		
+
+	/**
+	 * Deletes a user
+	 * @param user
+	 * @return status
+	 */
+	public Status delete(User user) {
+
 		int result = userDao.delete(user);
-		if(result==1){
+		if (result == 1) {
 			return Status.DELETED;
 		}
 		return Status.NOT_FOUND;
 	}
-	
-	public User getUserByEmail(String email){
-		
+
+	/**
+	 * Gets user by its unique email
+	 * @param email
+	 * @return user
+	 */
+	public User getUserByEmail(String email) {
+
 		List<User> userList = userDao.getAll();
-		
-		for(User tempUser: userList){
-			if(tempUser.getEmail().equals(email)){
+
+		for (User tempUser : userList) {
+			if (tempUser.getEmail().equals(email)) {
 				return userDao.getUserByEmail(email);
 			}
 		}
-		
+
 		return null;
 	}
-	
-	public List<String> getEmailListByCompanyName(String companyName, String email){
+
+	/**
+	 * Gets email list by company name
+	 * @param companyName
+	 * @param email
+	 * @return list of email
+	 */
+	public List<String> getEmailListByCompanyName(String companyName, String email) {
 		return userDao.getEmailListByCompanyName(companyName, email);
 	}
 }

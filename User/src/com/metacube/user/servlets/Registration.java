@@ -7,47 +7,39 @@ import javax.servlet.http.*;
 import com.metacube.user.enums.Status;
 import com.metacube.user.facade.UserFacade;
 import com.metacube.user.pojo.User;
-import com.oreilly.servlet.MultipartRequest;
 
+public class Registration extends HttpServlet {
 
-
-
-public class Registration extends HttpServlet{
-	
 	private static final long serialVersionUID = 1L;
 	UserFacade userFacade = UserFacade.getInstance();
 
-	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
-		
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
 		PrintWriter out = res.getWriter();
-	
-		
+
+		//getting values from registration form
 		String firstName = req.getParameter("firstName");
 		String lastName = req.getParameter("lastName");
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 		String contactNumber = req.getParameter("contactNumber");
 		String companyName = req.getParameter("companyName");
-		
-		Status insertionStatus = userFacade.insert(new User(firstName,lastName,password,email,contactNumber,companyName));
-		
-		if(insertionStatus == Status.INSERTED){
+
+		Status insertionStatus = userFacade
+				.insert(new User(firstName, lastName, password, email, contactNumber, companyName));
+
+		if (insertionStatus == Status.INSERTED) {
 			out.println("Registration successfull");
 			HttpSession session = req.getSession();
 			session.setAttribute("name", email);
-			
-			new MultipartRequest(req,"E:/doc");
-			
+
 			req.getRequestDispatcher("Profile?visibility=visible").include(req, res);
-		}
-		else{
+		} else {
 			out.println("Error!");
-			req.getRequestDispatcher("index.html").include(req,res);
+			req.getRequestDispatcher("index.html").include(req, res);
 		}
-		
-		
-		
+
 		out.close();
 	}
-	
+
 }

@@ -13,9 +13,9 @@ public class Login extends HttpServlet{
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 		
 		HttpSession session = req.getSession();
-		session.setAttribute("name", req.getParameter("email"));
+		session.setAttribute("name", req.getParameter("email"));//sets session attribute with email
 		
-		req.getRequestDispatcher("Profile?visibility=visible").include(req, res);
+		req.getRequestDispatcher("Profile?visibility=visible").include(req, res);//moves to profile servlet
 		
 		
 	}

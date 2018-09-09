@@ -15,11 +15,11 @@ public class Logout extends HttpServlet{
 		PrintWriter out = res.getWriter();
 		
 		HttpSession session=req.getSession();  
-        session.invalidate();  
+        session.invalidate();  //invalidates the session
           
         out.print("You are successfully logged out!");  
         
-        req.getRequestDispatcher("index.html").include(req, res);
+        req.getRequestDispatcher("index.html").include(req, res);//comes back to home page with its own request
 	}
 	
 }

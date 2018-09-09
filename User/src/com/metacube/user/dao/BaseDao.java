@@ -2,13 +2,13 @@ package com.metacube.user.dao;
 
 import java.util.List;
 
-@SuppressWarnings("hiding")
-public interface BaseDao<Object>{
+//INTERFACE FOR BASIC DAO METHODS
+public interface BaseDao<T>{
 
-	public List<Object> getAll();
-	public int insert(Object entity);
-	public int update(Object entity);
-	public int delete(Object entity);
+	public List<T> getAll();//getting all users
+	public int insert(T entity);//inserting a new user
+	public int update(T entity);//updating details of a user
+	public int delete(T entity);//deleting user
 
 	
 }

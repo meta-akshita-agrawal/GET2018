@@ -1,5 +1,6 @@
 package com.metacube.user.pojo;
 
+//POJO for user
 public class User {
 	
 	String firstName;

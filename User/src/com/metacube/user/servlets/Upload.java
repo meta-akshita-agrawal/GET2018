@@ -17,11 +17,11 @@ public class Upload extends HttpServlet {
 	    throws ServletException, IOException {  
 	  
 		response.setContentType("text/html");  
-		PrintWriter out = response.getWriter();  
+		//PrintWriter out = response.getWriter();  
 		
 		int maxSize = 10000000;
 		
-		MultipartRequest m=new MultipartRequest(request,"C:\\Users\\hp\\git\\GET2018\\eadAssignment4\\User\\WebContent\\images", maxSize);  
+		MultipartRequest m=new MultipartRequest(request,"C:\\Users\\hp\\git\\GET2018\\eadAssignment4\\User\\WebContent\\images", maxSize);//saves uploaded photo to the images folder in the server  
 		
 		request.getRequestDispatcher("Profile?visibility=visible").include(request, response);
 		
