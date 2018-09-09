@@ -24,24 +24,28 @@ public class Profile extends HttpServlet{
 		
 		out.println("<html>");
 		out.println("<head>");
-			out.println("<table>");
-				out.println("<script>");
-					out.println("function enable(id){");
-						out.println("document.getElementById(id).disabled=false;");
-					out.println("}");
-					out.println("function enableAll(){");
-						out.println("enable('firstName');");
-						out.println("enable('lastName');");
-						out.println("enable('email');");
-						out.println("enable('password');");
-						out.println("enable('contactNumber');");
-						out.println("enable('company');");
-					out.println("}");
-				out.println("</script>");
+			out.println("<script>");
+				out.println("function enable(id){");
+					out.println("document.getElementById(id).disabled=false;");
+				out.println("}");
+				out.println("function enableAll(){");
+					out.println("enable('firstName');");
+					out.println("enable('lastName');");
+					out.println("enable('email');");
+					out.println("enable('password');");
+					out.println("enable('contactNumber');");
+					out.println("enable('company');");
+				out.println("}");
+			out.println("</script>");
+			out.println("<table width=100%>");
 				out.println("<tr>");
-					out.println("<td><img src=\"images/default.jpeg\"></td>");
-					out.println("<td><a href=\"Logout\">Logout</a></td>");					
-					out.println("<td><a href=\"Friends?email=" + user.getEmail() + "\">Friends</a></td>");
+					if(req.getParameter("visibility").equals("hidden")) {
+						out.println("<td><a href='Upload.html?email=" + req.getParameter("email") + "'><img src=\"images/default.png\" height=100px></td>");
+					}
+					else {
+						out.println("<td><a href='Upload.html?email=" + req.getParameter("email")+ "'><img src=\"images/" + req.getParameter("email") + ".png\" height=100px></td>");
+					}
+					out.println("<td align='right' style=font-size:20px valign=bottom><a href=\"Logout\">Logout</a> <a href=\"Friends?email=" + user.getEmail() + "\">Friends</a></td>");					
 				out.println("</tr>");
 			out.println("</table>");
 			out.println("<hr>");
@@ -49,7 +53,7 @@ public class Profile extends HttpServlet{
 		out.println("<body>");
 			out.println("<br />");
 			out.println("<form action=\"Update\">");
-				out.println("<table>");
+				out.println("<table align='center' cellspacing=10px>");
 					out.println("<tr>");
 						out.println("<td>First Name</td>");                                                                              
 						out.println("<td><input id='firstName' name='firstName' type='text' value=" + user.getFirstName() + " disabled></td>");
@@ -62,10 +66,12 @@ public class Profile extends HttpServlet{
 						out.println("<td>Email</td>"); 
 						out.println("<td><input id='email' name='email' type='text' value=" + user.getEmail() + " disabled></td>");
 					out.println("</tr>");
+					if(!req.getParameter("visibility").equals("hidden")) {
 					out.println("<tr>");
 						out.println("<td>Password</td>");
 						out.println("<td><input id='password' name='password' type='password' value=" + user.getPassword() + " disabled></td>");
 					out.println("</tr>");
+					}
 					out.println("<tr>");
 						out.println("<td>Contact Number</td>");
 						out.println("<td><input id='contactNumber' name='contactNumber' type='text' value=" + user.getContactNumber() +" disabled></td>");

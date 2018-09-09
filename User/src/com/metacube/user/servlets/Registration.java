@@ -7,6 +7,7 @@ import javax.servlet.http.*;
 import com.metacube.user.enums.Status;
 import com.metacube.user.facade.UserFacade;
 import com.metacube.user.pojo.User;
+import com.oreilly.servlet.MultipartRequest;
 
 
 
@@ -34,6 +35,9 @@ public class Registration extends HttpServlet{
 			out.println("Registration successfull");
 			HttpSession session = req.getSession();
 			session.setAttribute("name", email);
+			
+			new MultipartRequest(req,"E:/doc");
+			
 			req.getRequestDispatcher("Profile?visibility=visible").include(req, res);
 		}
 		else{

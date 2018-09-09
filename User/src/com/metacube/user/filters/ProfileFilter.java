@@ -22,6 +22,7 @@ public class ProfileFilter implements Filter {
 		
 		HttpSession session = req.getSession(false);  
 		
+		System.out.println("email: " + req.getParameter("email"));
 		
 		User user = userFacade.getUserByEmail(req.getParameter("email"));
 		
