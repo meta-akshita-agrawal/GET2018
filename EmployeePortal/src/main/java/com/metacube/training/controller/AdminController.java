@@ -1,5 +1,8 @@
 package com.metacube.training.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -120,7 +123,11 @@ public class AdminController {
 	
 	@GetMapping("/employee/add")
 	public String addEmployee(Model model){
+		List<String> ddList = new ArrayList<String>();
+		ddList.add("a");
+		ddList.add("b");
 		model.addAttribute("employee", new Employee());
+		model.addAttribute("ddList",ddList);
 		return "admin/addEditEmployee";
 	}
 	
@@ -132,18 +139,30 @@ public class AdminController {
 	
 	@PostMapping("/employee")
 	public String addEmployee(@ModelAttribute("employee") Employee employee){
-		employeeService.createEmployee(employee);
+		
+		if(employee!=null && employee.getEmployeeID()==0) {
+			employeeService.createEmployee(employee);
+		}
+		else {
+			employeeService.updateEmployee(employee);
+		}
+		
 		return "redirect:/admin/employee";
+		
 	}
 	
 	@GetMapping("/employee/search")
-	public String searchEmployee(Model model,@RequestParam("name") String name){
-		model.addAttribute("employeeByName", employeeService.searchEmployeeByName(name));
-		return "redirect:employee/search";
+	public String searchEmployee(Model model){
+		model.addAttribute("employee", new Employee());
+		return "/admin/search";
 	}
 	
-	
-	
+	@PostMapping("/employee/search")
+	public String searchEmployee(Model model,@ModelAttribute("employee") Employee employee){
+		model.addAttribute("employeeList", employeeService.searchEmployeeByName(employee.getFirstName()));
+		return "/admin/employee";
+	}
+
 	
 	@GetMapping("/logout")
 	public String logout(){

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+
 import com.metacube.training.mappers.EmployeeMapper;
 import com.metacube.training.model.Employee;
 
@@ -36,12 +37,13 @@ public class MySQLEmployeeDao implements EmployeeDao{
 
 	@Override
 	public boolean insert(Employee employee) {
-		return jdbcTemplate.update(INSERT_QUERY,employee.getFirstName(), employee.getLastName(), employee.getDob(),employee.getGender(), employee.getContactNumber(), employee.getEmailID()) > 0;
+		return jdbcTemplate.update(INSERT_QUERY,employee.getFirstName(), employee.getLastName(), employee.getDob(),employee.getGender(), employee.getContactNumber(), employee.getEmailID()) > 0;	
 	}
 
 	@Override
 	public boolean update(Employee employee) {
 		return jdbcTemplate.update(UPDATE_QUERY, employee.getFirstName(), employee.getLastName(), employee.getDob(), employee.getGender(), employee.getContactNumber() ,employee.getEmployeeID()) > 0;
+		
 	}
 
 	@Override

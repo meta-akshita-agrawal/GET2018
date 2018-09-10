@@ -14,16 +14,23 @@
 				<input type="text" th:field="*{lastName}" />
 			<br />
 				<label>DOB</label>
-				<input type="text" th:field="*{dob}" />
+				<input type="date" th:field="*{dob}" />
 			<br />
 				<label>Gender</label>
-				<input type="text" th:field="*{gender}" />
+				<input type="radio" th:field="*{gender}" th:value="male"/>Male
+				<input type="radio" th:field="*{gender}" th:value="female"/>Female
 			<br />
 				<label>Contact Number</label>
 				<input type="text" th:field="*{contactNumber}" />
 			<br />
 				<label>Email id</label>
 				<input type="text" th:field="*{emailID}" />
+			<br />
+			
+			<select>
+				<option th:each="dd:${ddList}" th:text="${dd}" ></option>
+			</select>
+			
 			<br />
 				<button type="submit" class="btn btn-primary">Save</button>
 		</form>

@@ -19,6 +19,7 @@ public class EmployeeMapper implements RowMapper<Employee>{
 		employee.setDob(resultSet.getDate("dob"));
 		employee.setGender((String) resultSet.getObject("gender"));
 		employee.setContactNumber(resultSet.getString("contact_no"));
+		employee.setEmailID(resultSet.getString("email_id"));
 		return employee;
 	}
 		
