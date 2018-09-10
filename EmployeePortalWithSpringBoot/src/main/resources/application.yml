@@ -1,0 +1,10 @@
+server:
+  servlet:
+    context-path: /EmployeePortalWithSpringBoot
+spring:
+  datasource: 
+    url: jdbc:mysql://localhost:3306/storefrontt
+    username: root
+    password: 1234
+    driver-class-name : com.mysql.jdbc.Driver
+    type: org.apache.tomcat.jdbc.pool.DataSource
