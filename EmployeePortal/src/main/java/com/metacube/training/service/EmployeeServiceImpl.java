@@ -45,4 +45,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return employeeDao.getEmployeeByName(name);
 	}
 
+	@Override
+	public Employee getEmployeeByEmail(String email) {
+		return employeeDao.getEmployeeByEmail(email);
+	}
+
 }

@@ -115,6 +115,9 @@ public class AdminController {
 	@Autowired
 	EmployeeService employeeService;
 	
+	@Autowired
+	EmployeeSkillsService employeeSkillsService;
+	
 	@GetMapping("/employee")
 	public String getAllEmployee(Model model){
 		model.addAttribute("employeeList", employeeService.getAllEmployee());
@@ -123,11 +126,11 @@ public class AdminController {
 	
 	@GetMapping("/employee/add")
 	public String addEmployee(Model model){
-		List<String> ddList = new ArrayList<String>();
-		ddList.add("a");
-		ddList.add("b");
+		List<Skill> skillsList = skillService.getAllSkills();
+		List<String> skills = new ArrayList<String>();
 		model.addAttribute("employee", new Employee());
-		model.addAttribute("ddList",ddList);
+		model.addAttribute("skillsList",skillsList);
+		model.addAttribute("skills", skills);
 		return "admin/addEditEmployee";
 	}
 	
@@ -140,11 +143,20 @@ public class AdminController {
 	@PostMapping("/employee")
 	public String addEmployee(@ModelAttribute("employee") Employee employee){
 		
+		
+		
 		if(employee!=null && employee.getEmployeeID()==0) {
 			employeeService.createEmployee(employee);
 		}
 		else {
 			employeeService.updateEmployee(employee);
+		}
+		
+		for(String skill : employee.getSkills()){
+			EmployeeSkills employeeSkills = new EmployeeSkills();
+			employeeSkills.setEmployeeID(employeeService.getEmployeeByEmail(employee.getEmailID()).getEmployeeID());
+			employeeSkills.setSkillName(skill);
+			employeeSkillsService.insertEmployeeSkill(employeeSkills);
 		}
 		
 		return "redirect:/admin/employee";

@@ -1,6 +1,7 @@
 package com.metacube.training.model;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -14,8 +15,15 @@ public class Employee {
 	private String gender;
 	private String contactNumber;
 	private String emailID;
+	private List<String> skills;
 	
 
+	public List<String> getSkills() {
+		return skills;
+	}
+	public void setSkills(List<String> skills) {
+		this.skills = skills;
+	}
 	public void setEmployeeID(int employeeID) {
 		this.employeeID = employeeID;
 	}

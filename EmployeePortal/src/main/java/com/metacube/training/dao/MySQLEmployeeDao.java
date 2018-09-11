@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 
+
 import com.metacube.training.mappers.EmployeeMapper;
 import com.metacube.training.model.Employee;
 
@@ -28,7 +29,7 @@ public class MySQLEmployeeDao implements EmployeeDao{
 	private static final String DELETE_QUERY = "delete from employeeportal.employee where id=?";
 	private static final String SELECT_BY_ID_QUERY = "select *  from employeeportal.employee where id = ?";
 	private static final String SELECT_BY_NAME_QUERY = "select * from employeeportal.employee where first_name=?";
-	
+	private static final String GET_ID_BY_EMAIL = "select * from employeeportal.employee where email_id=?";
 	
 	@Override
 	public List<Employee> getAll() {
@@ -59,6 +60,11 @@ public class MySQLEmployeeDao implements EmployeeDao{
 	@Override
 	public List<Employee> getEmployeeByName(String name) {
 		return jdbcTemplate.query(SELECT_BY_NAME_QUERY, new Object[] {name}, new EmployeeMapper());
+	}
+
+	@Override
+	public Employee getEmployeeByEmail(String email) {
+		return jdbcTemplate.queryForObject(GET_ID_BY_EMAIL, new Object[] {email}, new EmployeeMapper());
 	}
 
 	

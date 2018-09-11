@@ -24,6 +24,7 @@ public class MySQLSkillDao implements SkillDao{
 	private static String SELECT_ALL_QUERY = "select * from employeeportal.skill";
 	private static String INSERT_QUERY = "insert into employeeportal.skill(name) values(?)";
 	private static String SELECT_BY_ID_QUERY = "select * from employeeportal.skill where id=?";
+
 	
 	@Override
 	public List<Skill> getAll() {
@@ -49,5 +50,6 @@ public class MySQLSkillDao implements SkillDao{
 	public Skill getSkillByID(int id) {
 		return jdbcTemplate.queryForObject(SELECT_BY_ID_QUERY, new Object[] {id}, new SkillMapper());
 	}
+
 
 }

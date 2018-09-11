@@ -8,4 +8,5 @@ public interface EmployeeDao extends BaseDao<Employee>{
 	
 	public Employee getEmployeeByID(int id);
 	public List<Employee> getEmployeeByName(String name);
+	public Employee getEmployeeByEmail(String email);
 }
