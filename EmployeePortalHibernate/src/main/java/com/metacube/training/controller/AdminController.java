@@ -1,6 +1,5 @@
 package com.metacube.training.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,7 +126,7 @@ public class AdminController {
 	@GetMapping("/employee/add")
 	public String addEmployee(Model model){
 		List<Skill> skillsList = skillService.getAllSkills();
-		List<String> skills = new ArrayList<String>();
+		String[] skills = new String[10];
 		model.addAttribute("employee", new Employee());
 		model.addAttribute("skillsList",skillsList);
 		model.addAttribute("skills", skills);
@@ -141,7 +140,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("/employee")
-	public String addEmployee(@ModelAttribute("employee") Employee employee){
+	public String addEmployee(@ModelAttribute("employee") Employee employee, @RequestParam("skills") String[] skills){
 		
 		
 		
@@ -152,12 +151,7 @@ public class AdminController {
 			employeeService.updateEmployee(employee);
 		}
 		
-		for(String skill : employee.getSkills()){
-			EmployeeSkills employeeSkills = new EmployeeSkills();
-			employeeSkills.setEmployeeID(employeeService.getEmployeeByEmail(employee.getEmailID()).getEmployeeID());
-			employeeSkills.setSkillName(skill);
-			employeeSkillsService.insertEmployeeSkill(employeeSkills);
-		}
+		employeeSkillsService.insertSkillsForEmployeeID(skills, employeeService.getEmployeeByEmail(employee.getEmailID()).getEmployeeID());
 		
 		return "redirect:/admin/employee";
 		

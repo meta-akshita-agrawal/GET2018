@@ -5,14 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.metacube.training.dao.MySQLSkillDao;
+
+import com.metacube.training.dao.SkillDao;
 import com.metacube.training.model.Skill;
 
 @Service
 public class SkillServiceImpl implements SkillService{
 
 	@Autowired
-	MySQLSkillDao skillDao;
+	SkillDao skillDao;
 	
 	@Override
 	public List<Skill> getAllSkills() {

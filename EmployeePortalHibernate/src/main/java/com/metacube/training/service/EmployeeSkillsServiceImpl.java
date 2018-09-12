@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.metacube.training.dao.MySQLEmployeeSkillsDao;
+import com.metacube.training.dao.EmployeeSkillsDao;
 import com.metacube.training.model.EmployeeSkills;
 
 @Service
 public class EmployeeSkillsServiceImpl implements EmployeeSkillsService{
 
 	@Autowired
-	MySQLEmployeeSkillsDao myEmpSkillsDao;
+	EmployeeSkillsDao myEmpSkillsDao;
 	
 	@Override
 	public List<EmployeeSkills> getAll() {
@@ -27,6 +27,11 @@ public class EmployeeSkillsServiceImpl implements EmployeeSkillsService{
 	@Override
 	public List<EmployeeSkills> getSkillsByEmployeeId(int id) {
 		return myEmpSkillsDao.getSkillsByEmployeeId(id);
+	}
+
+	@Override
+	public boolean insertSkillsForEmployeeID(String[] skills, int id) {
+		return myEmpSkillsDao.insertSkillsForEmployeeID(skills, id);
 	}
 
 }
