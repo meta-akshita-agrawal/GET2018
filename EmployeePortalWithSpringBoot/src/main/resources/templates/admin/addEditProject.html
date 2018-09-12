@@ -4,17 +4,23 @@
 		<title>Edit/add project page</title>
 	</head>
 	<body>
-		<form th:object="${project}" th:action="@{../projects}" method="post">
+		<form th:object="${project}" th:action="@{/admin/projects}" method="post">
 				<input type="hidden" th:field="*{id}" />
+				
+				
 			<br />
 				<label>Description</label>
 				<input type="text" th:field="*{description}" />
+				<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</span>
 			<br />
 				<label>Start Date</label>
 				<input type="date" th:field="*{startDate}" />
+				<span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}">Description Error</span>
 			<br />
 				<label>End Date</label>
 				<input type="date" th:field="*{endDate}" />
+				<span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}">Description Error</span>
+				
 			<br />
 				<button type="submit" class="btn btn-primary">Save</button>
 		</form>

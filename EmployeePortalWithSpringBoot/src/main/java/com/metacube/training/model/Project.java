@@ -2,13 +2,26 @@ package com.metacube.training.model;
 
 import java.util.Date;
 
+import javax.persistence.*;
+import javax.validation.constraints.*;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
+@Entity
 public class Project {
+	
+	
 	private int id;
+	
+	@NotNull
+	@Size(min=2,max=40)
 	private String description;
+	
+	@NotNull
 	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private Date startDate;
+	
+	@NotNull
 	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private Date endDate;
 	public int getId() {

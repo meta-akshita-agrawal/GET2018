@@ -2,13 +2,23 @@ package com.metacube.training.model;
 
 import java.util.Date;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
+@Entity
 public class Employee {
 
+	
 	private int employeeID;
+	
+	@NotNull
 	private String firstName;
+	
+	@NotNull
 	private String lastName;
+	
 	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private Date dob;
 	private String gender;

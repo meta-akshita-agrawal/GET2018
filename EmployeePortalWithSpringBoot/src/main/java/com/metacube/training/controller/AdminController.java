@@ -3,9 +3,12 @@ package com.metacube.training.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -49,13 +52,21 @@ public class AdminController {
 	}
 	
 	@PostMapping("/projects")
-	public String saveProject(@ModelAttribute("project") Project project) {
+	public String saveProject(@Valid @ModelAttribute("project") Project project, BindingResult bindingResult) {
+		
+		if (bindingResult.hasErrors()) {
+			  
+              System.out.println("BINDING RESULT ERROR");		  
+              return "admin/addEditProject";
+			 
+	    }else{
+		
 		if(project!=null && project.getId()==0) {
 			projectService.createProject(project);
 		}
 		else {
 			projectService.updateProject(project);
-		}
+		}}
 		
 		return "redirect:/admin/projects";
 	}
@@ -123,11 +134,7 @@ public class AdminController {
 	
 	@GetMapping("/employee/add")
 	public String addEmployee(Model model){
-		List<String> ddList = new ArrayList<String>();
-		ddList.add("a");
-		ddList.add("b");
 		model.addAttribute("employee", new Employee());
-		model.addAttribute("ddList",ddList);
 		return "admin/addEditEmployee";
 	}
 	
