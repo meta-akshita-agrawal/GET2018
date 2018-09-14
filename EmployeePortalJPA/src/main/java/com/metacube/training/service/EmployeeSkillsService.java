@@ -10,4 +10,5 @@ public interface EmployeeSkillsService {
 	public boolean insertEmployeeSkill(EmployeeSkills entity);
 	public List<EmployeeSkills> getSkillsByEmployeeId(int id);
 	public boolean insertSkillsForEmployeeID(String[] skills,int id);
+	public boolean deleteSkillsByEmployeeID(int id);
 }

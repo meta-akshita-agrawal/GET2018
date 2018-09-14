@@ -4,34 +4,66 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.metacube.training.dao.EmployeeSkillsDao;
 import com.metacube.training.model.EmployeeSkills;
+import com.metacube.training.repository.EmployeeSkillsRepository;
 
 @Service
 public class EmployeeSkillsServiceImpl implements EmployeeSkillsService{
 
+//	@Autowired
+//	EmployeeSkillsDao myEmpSkillsDao;
+	
 	@Autowired
-	EmployeeSkillsDao myEmpSkillsDao;
+	EmployeeSkillsRepository employeeSkillsRepository;
+	
 	
 	@Override
+	@Transactional
 	public List<EmployeeSkills> getAll() {
-		return myEmpSkillsDao.getAll();
+		return employeeSkillsRepository.findAll();
 	}
 
 	@Override
+	@Transactional
 	public boolean insertEmployeeSkill(EmployeeSkills entity) {
-		return myEmpSkillsDao.insert(entity);
+		try{
+			employeeSkillsRepository.save(entity);
+		}catch(RuntimeException e){
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
 	}
 
 	@Override
+	@Transactional
 	public List<EmployeeSkills> getSkillsByEmployeeId(int id) {
-		return myEmpSkillsDao.getSkillsByEmployeeId(id);
+		return employeeSkillsRepository.findEmployeeSkillsByEmployeeID(id);
 	}
 
 	@Override
+	@Transactional
 	public boolean insertSkillsForEmployeeID(String[] skills, int id) {
-		return myEmpSkillsDao.insertSkillsForEmployeeID(skills, id);
+		
+		for(String skill:skills){
+			EmployeeSkills employeeSkills = new EmployeeSkills();
+			employeeSkills.setEmployeeID(id);
+			employeeSkills.setSkillName(skill);
+			boolean check = insertEmployeeSkill(employeeSkills);
+			if(!check) return false;
+		}
+		
+		return false;
+	}
+
+	@Override
+	@Transactional
+	public boolean deleteSkillsByEmployeeID(int id) {
+		// TODO Auto-generated method stub
+		return employeeSkillsRepository.deleteEmployeeSkillsByEmployeeID(id)>0;
 	}
 
 }

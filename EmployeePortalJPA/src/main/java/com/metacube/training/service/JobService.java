@@ -10,7 +10,7 @@ public interface JobService{
 
 	boolean deleteJob(int id);
 
-	boolean updateJob(Job job);
+	//boolean updateJob(Job job);
 
 	boolean createJob(Job job);
 	

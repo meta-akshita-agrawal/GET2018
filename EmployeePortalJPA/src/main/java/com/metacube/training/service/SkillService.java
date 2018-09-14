@@ -10,7 +10,7 @@ public interface SkillService{
 
 	boolean deleteSkill(int id);
 
-	boolean updateSkill(Skill skill);
+	//boolean updateSkill(Skill skill);
 
 	boolean createSkill(Skill skill);
 

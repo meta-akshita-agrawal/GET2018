@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.metacube.training.dao.EmployeeDao;
 import com.metacube.training.model.Employee;
 import com.metacube.training.repository.EmployeeRepository;
 
@@ -16,39 +16,53 @@ public class EmployeeServiceImpl implements EmployeeService{
 	private EmployeeRepository employeeRepository;
 	
 	@Override
+	@Transactional
 	public List<Employee> getAllEmployee() {
 		return employeeRepository.findAll();
 	}
 
 	@Override
+	@Transactional
 	public boolean deleteEmployee(int id) {
-		Employee employee = employeeRepository.de
-		return employeeDao.delete(employee);
+		return employeeRepository.deleteByEmployeeID(id)>0;
 	}
 
 	@Override
+	@Transactional
 	public boolean updateEmployee(Employee employee) {
-		return employeeRepository.save(employee);
+		try{
+			employeeRepository.save(employee);
+		}catch(RuntimeException e){
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 	@Override
 	public boolean createEmployee(Employee employee) {
-		return employeeDao.insert(employee);
+		try{
+			employeeRepository.save(employee);
+		}catch(RuntimeException e){
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 	@Override
 	public Employee getEmployeeById(int id) {
-		return employeeDao.getEmployeeByID(id);
+		return employeeRepository.findEmployeeByEmployeeID(id);
 	}
 
 	@Override
 	public List<Employee> searchEmployeeByName(String name) {
-		return employeeDao.getEmployeeByName(name);
+		return employeeRepository.findEmployeeByFirstName(name);
 	}
 
 	@Override
 	public Employee getEmployeeByEmail(String email) {
-		return employeeDao.getEmployeeByEmail(email);
+		return employeeRepository.findEmployeeByEmailID(email);
 	}
 
 }

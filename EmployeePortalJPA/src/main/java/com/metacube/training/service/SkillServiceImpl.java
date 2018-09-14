@@ -4,41 +4,54 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-
-import com.metacube.training.dao.SkillDao;
 import com.metacube.training.model.Skill;
+import com.metacube.training.repository.SkillRepository;
 
 @Service
 public class SkillServiceImpl implements SkillService{
 
+//	@Autowired
+//	SkillDao skillDao;
+	
 	@Autowired
-	SkillDao skillDao;
+	SkillRepository skillRepository;
 	
 	@Override
+	@Transactional
 	public List<Skill> getAllSkills() {
-		return skillDao.getAll();
+		return skillRepository.findAll();
 	}
 
 	@Override
+	@Transactional
 	public boolean deleteSkill(int id) {
-		Skill skill = skillDao.getSkillByID(id);
-		return skillDao.delete(skill);
+		return skillRepository.deleteSkillBySkillCode(id) > 0;
 	}
 
-	@Override
-	public boolean updateSkill(Skill skill) {
-		return skillDao.update(skill);
-	}
+//	@Override
+//	public boolean updateSkill(Skill skill) {
+//		return skillDao.update(skill);
+//	}
 
 	@Override
+	@Transactional
 	public boolean createSkill(Skill skill) {
-		return skillDao.insert(skill);
+		try{
+			skillRepository.save(skill);
+		}catch(RuntimeException e){
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
 	}
 
 	@Override
+	@Transactional
 	public Skill getSkillByID(int id) {
-		return skillDao.getSkillByID(id);
+		return skillRepository.findSkillBySkillCode(id);
 	}
 
 }

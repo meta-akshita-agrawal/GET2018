@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+
+import org.springframework.transaction.annotation.Transactional;
+
 import com.metacube.training.model.Project;
 import com.metacube.training.repository.ProjectRepository;
 
@@ -24,9 +27,10 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
+	@Transactional
 	public boolean deleteProject(int id) {
 		try{
-			projectRepository.deleteProjectById(id);
+			projectRepository.deleteProjectByid(id);
 		}catch(RuntimeException e){
 			e.printStackTrace();
 			return false;
@@ -36,6 +40,7 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
+	@Transactional
 	public boolean updateProject(Project project) {
 		try{
 			projectRepository.save(project);
@@ -48,6 +53,7 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
+	@Transactional
 	public boolean createProject(Project project) {
 		try{
 			projectRepository.save(project);
@@ -60,6 +66,7 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
+	@Transactional
 	public Project getProjectById(int id) {
 		return projectRepository.findProjectById(id);
 	}

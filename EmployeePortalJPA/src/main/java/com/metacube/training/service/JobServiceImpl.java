@@ -5,40 +5,55 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.metacube.training.dao.JobDao;
 
 import com.metacube.training.model.Job;
+import com.metacube.training.repository.JobRepository;
 
 @Service
 public class JobServiceImpl implements JobService{
 
+//	@Autowired
+//	JobDao jobDao;
+	
 	@Autowired
-	JobDao jobDao;
+	JobRepository jobRepository;
 	
 	@Override
 	public List<Job> getAllJobs() {
-		return jobDao.findAll();
+		return jobRepository.findAll();
 	}
 
 	@Override
 	public boolean deleteJob(int id) {
-		Job job = jobDao.getJobByID(id);
-		return jobDao.delete(job);
+		try{
+			jobRepository.deleteJobByJobCode(id);
+		}catch(RuntimeException e){
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
-	@Override
-	public boolean updateJob(Job job) {
-		return jobDao.update(job);
-	}
+//	@Override
+//	public boolean updateJob(Job job) {
+//		return jobDao.update(job);
+//	}
 
 	@Override
 	public boolean createJob(Job job) {
-		return jobDao.insert(job);
+		try{
+			jobRepository.save(job);
+		}catch(RuntimeException e){
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
 	}
 
 	@Override
 	public Job getJobById(int id) {
-		return jobDao.getJobByID(id);
+		return jobRepository.findJobByJobCode(id);
 	}
 
 }

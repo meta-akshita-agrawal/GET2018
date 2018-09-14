@@ -135,7 +135,12 @@ public class AdminController {
 	
 	@GetMapping("/employee/edit")
 	public String editEmployee(Model model, @RequestParam("id") int id){
+		List<Skill> skillsList = skillService.getAllSkills();
+		String[] skills = new String[10];
 		model.addAttribute("employee", employeeService.getEmployeeById(id));
+		model.addAttribute("skillsList",skillsList);
+		model.addAttribute("skills", skills);
+		
 		return "admin/addEditEmployee";
 	}
 	
@@ -146,12 +151,17 @@ public class AdminController {
 		
 		if(employee!=null && employee.getEmployeeID()==0) {
 			employeeService.createEmployee(employee);
+			
 		}
 		else {
 			employeeService.updateEmployee(employee);
+			employeeSkillsService.deleteSkillsByEmployeeID(employee.getEmployeeID());
+			
 		}
 		
 		employeeSkillsService.insertSkillsForEmployeeID(skills, employeeService.getEmployeeByEmail(employee.getEmailID()).getEmployeeID());
+		
+		
 		
 		return "redirect:/admin/employee";
 		
