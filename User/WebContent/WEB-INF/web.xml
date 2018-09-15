@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+    xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  
+  	<display-name>UserServlet</display-name>
+  
+<!-- REGISTRATION SERVLET -->
+	<servlet>
+		<display-name>RegistrationServlet</display-name>
+		<servlet-name>Registration</servlet-name>
+		<servlet-class>com.metacube.user.servlets.Registration</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Registration</servlet-name>
+		<url-pattern>/Registration</url-pattern>
+	</servlet-mapping>
+
+<!-- LOGIN SERVLET AND ITS FILTER -->
+	<servlet>
+		<display-name>LoginServlet</display-name>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>com.metacube.user.servlets.Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>Login</servlet-name>
+	 	<url-pattern>/Login</url-pattern>
+	 </servlet-mapping>
+
+	<filter>  
+  		<filter-name>LoginFilter</filter-name>  
+  		<filter-class>com.metacube.user.filters.LoginFilter</filter-class>  
+  	</filter>  
+  	<filter-mapping>  
+ 		<filter-name>LoginFilter</filter-name>  
+  		<url-pattern>/Login</url-pattern>  
+  	</filter-mapping>
+  	
+<!-- PROFILE SERVLET AND ITS FILTER -->
+  	<servlet>
+		<display-name>ProfileServlet</display-name>
+		<servlet-name>Profile</servlet-name>
+		<servlet-class>com.metacube.user.servlets.Profile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>Profile</servlet-name>
+	 	<url-pattern>/Profile</url-pattern>
+	 </servlet-mapping>  
+  
+  	<filter>  
+  		<filter-name>ProfileFilter</filter-name>  
+  		<filter-class>com.metacube.user.filters.ProfileFilter</filter-class>  
+  	</filter>  
+  	<filter-mapping>  
+ 		<filter-name>ProfileFilter</filter-name>  
+  		<url-pattern>/Profile</url-pattern>
+  		<dispatcher>REQUEST</dispatcher> 
+		<dispatcher>INCLUDE</dispatcher>
+  	</filter-mapping>
+  	
+<!-- UPDATION SERVLET -->
+  	<servlet>
+		<display-name>UpdateServlet</display-name>
+		<servlet-name>Update</servlet-name>
+		<servlet-class>com.metacube.user.servlets.Update</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>Update</servlet-name>
+	 	<url-pattern>/Update</url-pattern>
+	 </servlet-mapping>
+
+<!-- LOGOUT SERVLET -->
+	<servlet>
+		<display-name>LogoutServlet</display-name>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>com.metacube.user.servlets.Logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>Logout</servlet-name>
+	 	<url-pattern>/Logout</url-pattern>
+	 </servlet-mapping>
+
+<!-- FRIENDS SERVLET -->
+  	<servlet>
+		<display-name>FriendsServlet</display-name>
+		<servlet-name>Friends</servlet-name>
+		<servlet-class>com.metacube.user.servlets.Friends</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>Friends</servlet-name>
+	 	<url-pattern>/Friends</url-pattern>
+	 </servlet-mapping>
+  	
+<!-- UPLOAD SERVLET -->  	
+  	<servlet>  
+	<servlet-name>UploadServlet</servlet-name>  
+	<servlet-class>com.metacube.user.servlets.Upload</servlet-class>  
+	</servlet>  
+	<servlet-mapping>  
+	<servlet-name>UploadServlet</servlet-name>  
+	<url-pattern>/Upload</url-pattern>  
+	</servlet-mapping>  
+  	
+ <!-- WELCOME PAGE -->
+	<welcome-file-list>
+	 	 <welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>
