@@ -1,0 +1,308 @@
+*{
+    margin: 0%;
+    font-family:verdana;
+}
+
+.header{
+    background-color: #6495ed;
+    padding:10px;
+    width:100%;
+}
+
+body h1{
+	margin-top:100px;
+	color:#6495ed;
+	text-align:center;
+}
+
+body p{
+	color:grey;
+	text-align:center;
+}
+
+.logo{
+    /* background-color: black; */
+    width: 20%;
+    margin-left : 40px;
+}
+
+.tabs{
+    width: 40%;
+    margin-left:20%;
+    /* margin-right:25%; */
+}
+
+.tabs a{
+    color: white;
+    font-size:15px;
+    text-decoration: none;
+    padding: 8px;
+}
+
+.social{
+    /* padding:15px; */
+    float:right;
+    /* background-color: black; */
+    width: 15%;
+    /* margin-left:auto;*/
+    margin-right:40px;
+}
+
+.social a{
+    padding:15px;
+}
+
+.header-image{
+    height:20px;
+    vertical-align: middle;
+}
+
+.logo,.tabs,.social{
+    display:inline;
+}
+
+
+.cover{
+    background-image: url("../images/homebg.png");
+    background-size: 100% 100%;
+    /* background-size:contain; */
+    display: table;
+    width: 100%;
+    height:100%;
+}
+
+    /* .cover::after{
+        content: "";
+        clear: both;
+        display: table;
+    } */
+
+.cover-content{
+    /* background-color: black; */
+    display: table-cell;
+    vertical-align: top;
+    padding:100px 60px;
+    /* padding:20px; */
+    /* margin:20px; */
+    /* height:1000px; */
+    /* margin-top:-5000px; */
+    /* float:left; */
+}
+
+.cover-content h1{
+    color:white;
+    margin:50px;
+}
+
+.cover-button{
+  text-decoration: none;
+  background-color:rgb(73, 73, 201);
+  color: white;
+  padding: 15px 10px;
+  margin-left:40px;
+  /* border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC; */
+  border-radius:5px;
+}
+
+.cover-button:first-of-type{
+    background-color:orangered;
+}
+
+.cover-image{
+    /* background-color: blue; */
+    
+    display: table-cell;
+    padding-bottom:80px;
+}
+
+.cover-image img{
+    /* display:block; */
+    height:500px;
+    padding:120px;
+    display:block;
+}
+
+.features{
+    margin-top:100px;
+	margin-left:150px;
+	margin-right:150px;
+    /*padding:50px;*/
+}
+
+.features img{
+	margin-top:100px;
+	margin-left:10%;
+	margin-right:10%
+}
+
+.feature{
+	display:inline-block;
+	/* margin:5px; */
+}
+
+.feature > *{
+	vertical-align:top;
+}
+
+.feature-image{	
+	display:inline-block;
+}
+
+.feature-image img{
+    width:50px;
+	margin:5px;
+}
+
+.feature-content > *{
+	text-align:left;
+	width:250px;
+}
+
+.feature-image,.feature-content{
+	display:inline-block;
+}
+
+.content{
+	margin-top:0px;
+}
+
+.content > *{
+	margin-left:150px;
+	margin-right:150px;
+}
+
+
+.weather-image{
+	margin:150px;
+}
+
+.weather-content{
+	height:608px;
+	width:300px;
+	vertical-align:top;
+	text-align:left;
+}
+
+.weather-content img{
+	margin-top:300px;
+	margin-bottom:50px;
+}
+
+.weather-content p{
+	margin-top:20px;
+	text-align:left;
+}
+
+.weather-image,.weather-content{
+	display:inline-block;
+}
+
+.reviews{
+    margin:50px;
+    padding: 50px;
+}
+
+
+.review{
+    vertical-align: top;
+    width: 400px;
+    /* height:400px; */
+    display: inline-block;
+    margin:40px;
+}
+
+.review p{
+    text-align:left;
+    margin:10px;
+    font-size:14px;
+    color:black;
+}
+
+.review p:nth-child(2){
+    font-size:12px;
+}
+
+.bottom{
+    background-image: url("../images/downloadbg.png");
+    /* display: inline-block; */
+    vertical-align: bottom;
+    height:300px;
+}
+
+.bottom p{
+    color:white;
+    width:60%;
+    text-align: left;
+    /* margin-left: 100px; */
+    margin-bottom: 30px;
+}
+
+.bottom h1{
+    color:white;
+    /* width:50%; */
+    /* margin-left:100px; */
+    margin-top:60px;
+    margin-bottom: 15px;
+    font-style: arial;
+    font-size:25px;
+    text-align:left;
+}
+
+/* .bottom a{
+    
+} */
+
+.bottom-content img{
+    width: 100px;
+}
+
+.bottom-image img{
+    width:60%;
+    vertical-align: bottom;
+    margin-left: 50px;
+    margin-top: 88px;
+}
+
+.bottom-content{
+    width:40%;
+    /* width:300px; */
+    height:100%;
+    /* margin:50px 10px; */
+    margin-left: 100px;
+}
+
+.bottom-image{
+    width:50%;
+    float:right;
+    height:100%;
+    /* padding:10px; */
+    vertical-align: bottom;
+}
+
+.bottom-image,.bottom-content{
+    display: inline-block;
+}
+
+.footer{
+    background-color:#383A53;
+    height:100px;
+    padding:20px 70px;
+    color:grey;
+}
+
+.footer a{
+    color:grey;
+}
+
+.footer hr{
+    color:white;
+    /* width:50%; */
+    margin-top:30px;
+    height:1px; 
+    border:none;
+    margin-bottom: 30px;
+
+}
