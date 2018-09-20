@@ -12,15 +12,16 @@
     margin: 0;
     height: 100px;
     width: 100px;
+    position: absolute;
+    animation: box 2s infinite;
 }
 
 .square:nth-child(1){
     background-color: rgb(184, 90, 228);
-    position: relative;
-    animation: box1 2s infinite;
+    animation-delay: -0s;
 }
 
-@keyframes box1{
+@keyframes box{
     0%   { left: 0px; top: 0px;}
     25%  {left: 100px; top: 0px;}
     50%  {left: 100px; top: 100px;}
@@ -30,42 +31,15 @@
 
 .square:nth-child(2){
     background-color: rgb(240, 206, 95);
-    position: relative;
-    animation: box2 2s infinite;
-}
-
-@keyframes box2{
-    0%   { left: 0px; top: 0px;}
-    25%  {left: 0px; top: 100px;}
-    50%  {left: -100px; top: 100px;}
-    75%  {left: -100px; top: 0px;}
-    100% {left: 0px; top: 0px;}
+    animation-delay: -0.5s;
 }
 
 .square:nth-child(3){
     background-color: rgb(116, 180, 240);
-    position: relative;
-    animation: box3 2s infinite;
-}
-
-@keyframes box3{
-    0%   { left: 0px; top: 0px;}
-    25%  {left: 0px; top: -100px;}
-    50%  {left: 100px; top: -100px;}
-    75%  {left: 100px; top: 0px;}
-    100% {left: 0px; top: 0px;}
+    animation-delay: -1.0s;
 }
 
 .square:nth-child(4){
     background-color:rgb(230, 95, 169);
-    position: relative;
-    animation: box4 2s infinite;
-}
-
-@keyframes box4{
-    0%   { left: 0px; top: 0px;}
-    25%  {left: -100px; top: 0px;}
-    50%  {left: -100px; top: -100px;}
-    75%  {left: 0px; top: -100px;}
-    100% {left: 0px; top: 0px;}
+    animation-delay: -1.5s;
 }
