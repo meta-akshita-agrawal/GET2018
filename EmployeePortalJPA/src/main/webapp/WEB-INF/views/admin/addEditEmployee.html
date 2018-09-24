@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Edit/Add employee page</title>
+	</head>
+	<body>
+		<form th:object="${employee}" th:action="@{../employee}" method="post">
+				<input type="hidden" th:field="*{employeeID}" />
+			<br />
+				<label>First name</label>
+				<input type="text" th:field="*{firstName}" />
+			<br />
+				<label>Last name</label>
+				<input type="text" th:field="*{lastName}" />
+			<br />
+				<label>DOB</label>
+				<input type="date" th:field="*{dob}" />
+			<br />
+				<label>Gender</label>
+				<input type="radio" th:field="*{gender}" th:value="male"/>Male
+				<input type="radio" th:field="*{gender}" th:value="female"/>Female
+			<br />
+				<label>Contact Number</label>
+				<input type="text" th:field="*{contactNumber}" />
+			<br />
+				<label>Email id</label>
+				<input type="text" th:field="*{emailID}" />
+			<br />
+			
+			<select name="skills" multiple>
+				<option th:each="skill,row:${skillsList}" th:text="${skill.skillName}"  th:id="${skill.skillCode}" th:value="${{skill.skillName}}"></option>
+			</select>
+			
+			<br />
+				<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+	
+		
+	</body>
+</html>
