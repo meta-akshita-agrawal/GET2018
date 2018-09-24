@@ -14,22 +14,11 @@ import com.metacube.training.service.*;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-
-	@GetMapping("/login")
-	public String login() {
-		//ModelAndView model = new ModelAndView();
-//		if(error!=null)	{
-//			model.addObject("error","Invalid username and password");
-//		}
-		//model.setViewName("admin/login");
-		return "admin/login";
-	}
 	
-	@PostMapping("/login")
-	public ModelAndView login(@RequestParam("username") String username,@RequestParam("password") String password) {
-		return new ModelAndView("admin/dashboard","username",username);
+	@GetMapping("/dashboard")
+	public String getDashboard(){
+		return "admin/dashboard";
 	}
-	
 	
 	@Autowired
 	ProjectService projectService;

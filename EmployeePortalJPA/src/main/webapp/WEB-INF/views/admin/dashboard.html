@@ -8,6 +8,6 @@
 		<a th:href="@{/admin/jobs}">Jobs</a><br />
 		<a th:href="@{/admin/skills}">Skills</a><br />
 		<a th:href="@{/admin/employee}">Employee</a><br />
-		<a th:href="@{/admin/logout}">Logout</a><br />
+		<form th:action="@{/Logout}" method="post"><input type="submit" value="Logout"/></form>
 	</body>
 </html>
