@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <svg width="100%">
+            <circle cx="600" cy="100" r="40" fill="dodgerblue" />
+        </svg>
+        <svg width="100%">
+            <clipPath id="cut-off-bottom">
+                <rect x="560" y="60" width="40" height="80">
+            </clipPath>
+            <circle cx="600" cy="100" r="40" fill="dodgerblue" clip-path="url(#cut-off-bottom)"/>
+        </svg>
+    </body>
+</html>
