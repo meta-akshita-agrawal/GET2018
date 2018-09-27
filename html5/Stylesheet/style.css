@@ -19,6 +19,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    align-self: center;
 }
 
 input{
@@ -33,7 +34,7 @@ textarea{
 .form{
     width: 50%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 50px;s
 }
 
 .field{
