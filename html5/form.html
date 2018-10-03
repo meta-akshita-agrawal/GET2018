@@ -4,50 +4,53 @@
         <link rel="stylesheet" href="Stylesheet/style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        Contact Us Today!
+        <script type="text/javascript" src="Scripts\form-script.js"></script>
     </head>
     <body>
+    <header>
+        Contact Us Today!
+    </header>
     <form class="form">
             <div class="row">
                 <div class="field">First Name</div>
                 <div class="input-field">
                     <div class="icon"><i class="fas fa-user"></i></div>
-                    <input type="text" placeholder="First Name" minlength=2 required/>
+                    <input type="text" id="firstName" placeholder="First Name" onblur="firstNameValidate()"/>
                 </div>
             </div>
             <div class="row">
                 <div class="field">Last Name</div>
                 <div class="input-field">
                     <div class="icon"><i class="fas fa-user"></i></div>
-                    <input type="text" placeholder="Last Name" minlength=2 required/>
+                    <input type="text" id="lastName" placeholder="Last Name" onblur="lastNameValidate()"/>
                 </div>
             </div>
             <div class="row">
                 <div class="field">Email</div>
                 <div class="input-field">
                     <div class="icon"><i class="fas fa-envelope"></i></div>
-                    <input type="email" placeholder="E-mail Address" required/>
+                    <input type="text" id="email" onblur="emailValidate()" placeholder="E-mail Address"/>
                 </div>
             </div>
             <div class="row">
                 <div class="field">Phone#</div>
                 <div class="input-field">
                     <div class="icon"><i class="fas fa-phone"></i></div>
-                    <input type="text" pattern="\d*" placeholder="(845)555-1212" minlength="10" maxlength="10" required/>
+                    <input type="text" id="contactNumber" placeholder="(845)555-1212" onblur="contactNumberValidate()"/>
                 </div>
             </div>
             <div class="row">
                 <div class="field">Address</div>
                 <div class="input-field">
                     <div class="icon"><i class="fas fa-home"></i></div>
-                    <input type="text" placeholder="Address" minlength="5" required/>
+                    <input type="text" id="address" placeholder="Address" onblur="addressValidate()"/>
                 </div>
             </div>
             <div class="row">
                 <div class="field">City</div>
                 <div class="input-field">
                     <div class="icon"><i class="fas fa-home"></i></div>
-                    <input type="text" placeholder="City" required/>
+                    <input type="text" id="city" placeholder="City" onblur="cityValidate()"/>
                 </div>
             </div>
             <div class="row">
