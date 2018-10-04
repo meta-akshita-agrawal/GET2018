@@ -1,0 +1,79 @@
+<html>
+    <head class="header">
+        <title>Contact Us Today!</title>
+        <link rel="stylesheet" href="Stylesheet/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <script type="text/javascript" src="Scripts\form-script.js"></script>
+    </head>
+    <body>
+    <header>
+        Contact Us Today!
+    </header>
+    <form class="form" id="form">
+            <div class="row">
+                <div class="field">First Name</div>
+                <div class="input-field">
+                    <div class="icon"><i class="fas fa-user"></i></div>
+                    <input type="text" id="firstName" placeholder="First Name"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">Last Name</div>
+                <div class="input-field">
+                    <div class="icon"><i class="fas fa-user"></i></div>
+                    <input type="text" id="lastName" placeholder="Last Name"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">Email</div>
+                <div class="input-field">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <input type="text" id="email" placeholder="E-mail Address"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">Phone#</div>
+                <div class="input-field">
+                    <div class="icon"><i class="fas fa-phone"></i></div>
+                    <input type="text" id="contactNumber" placeholder="(845)555-1212"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">Address</div>
+                <div class="input-field">
+                    <div class="icon"><i class="fas fa-home"></i></div>
+                    <input type="text" id="address" placeholder="Address"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">City</div>
+                <div class="input-field">
+                    <div class="icon"><i class="fas fa-home"></i></div>
+                    <input type="text" id="city" placeholder="City"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">State</div>
+                <div class="input-field">
+                        <div class="icon"><i class="fas fa-list"></i></div>
+                    <select id="state" onchange="stateField()">
+                        <option selected>Please select your State</option>
+                        <option>Rajasthan</option>
+                        <option>Haryana</option>
+                        <option>Maharashtra</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" id="buttonDiv">
+                <div class="field"></div>
+                <div class="input-field">
+                    <button type="submit" class="button">
+                        Send
+                        <i class="fa fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+    </form>
+    </body>
+</html>
