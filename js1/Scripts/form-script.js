@@ -1,9 +1,13 @@
 var errorMap = new Map();
-
+var jsonText = JSON.stringify({
+    name:"akshita",
+    value:"hi"
+});
+var jsonObject = JSON.parse(jsonText);
 window.onload=function(){
 	var formSubmit = document.getElementById('form');
 
-	if ( window.addEventListener ) { 
+	if ( window.addEventListener && formSubmit != undefined) { 
 		formSubmit.addEventListener('submit', validate);
 	}
 }
@@ -11,7 +15,7 @@ window.onload=function(){
 
 function firstNameValidate(){//validates first name in the form  where minimum length is 2 and should not be numeric
 
-    var firstName = document.getElementById("firstName")	
+    var firstName = document.getElementById("firstName");	
                                             
     if(firstName.value.length<2 || /[^a-zA-Z]/.test(firstName.value)){
 
@@ -50,10 +54,10 @@ function emailValidate(){//validates email where it should contain @, . and shou
         email.style.borderColor="green";
         errorMap.delete("Email");
     }
-
-email.style.borderColor="red";//border is red when validation is false
-errorMap.set("Email","email should contain atleast 5 characters and should be in format abc@xyz.lmn");//changes inner html of span tag with this message
-
+    else{
+        email.style.borderColor="red";//border is red when validation is false
+        errorMap.set("Email","email should contain atleast 5 characters and should be in format abc@xyz.lmn");//changes inner html of span tag with this message
+    }
 }
 
 function contactNumberValidate(){//should have length 10 and should not contain any character other than digits
@@ -64,10 +68,10 @@ function contactNumberValidate(){//should have length 10 and should not contain 
 		contactNumber.style.borderColor="red";
         errorMap.set("Contact Number","Contact Number should only contain numbers and should be of length 10");
 	}
-	
-	contactNumber.style.borderColor="green";
-	errorMap.delete("Contact Number");
-	
+	else{
+        contactNumber.style.borderColor="green";
+        errorMap.delete("Contact Number");
+    }
 }
 
 function addressValidate(){
@@ -78,10 +82,10 @@ function addressValidate(){
         address.style.borderColor="green";
         errorMap.delete("Address");
     }
-
-    address.style.borderColor="red";
-    errorMap.set("Address","Address should have length atleast 3 and should not be more than 50");
-    
+    else{
+        address.style.borderColor="red";
+        errorMap.set("Address","Address should have length atleast 3 and should not be more than 50");
+    }
 }
 
 function cityValidate(){
@@ -92,9 +96,10 @@ function cityValidate(){
         city.style.borderColor="green";
         errorMap.delete("City");
     }
-    city.style.borderColor="red";
-    errorMap.set("City","City should have atleast 3 characters");
-    return false;
+    else{
+        city.style.borderColor="red";
+        errorMap.set("City","City should have atleast 3 characters");
+    }
 }
 
 function stateField(){
