@@ -4,3 +4,16 @@ header{
     font-size:20px;
     font-weight: bold;
 }
+
+.ng-isolate-scope{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0.5rem!important;
+    margin-right: 0.5rem!important;
+    justify-content: space-between;
+}
+
+.modal
+{
+    opacity:6 !important;
+}
