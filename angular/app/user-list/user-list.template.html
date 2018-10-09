@@ -20,7 +20,7 @@
     <div class="row my-2 justify-content-between">
         <div class="card col-md-3 mx-1 flex-md-row mb-4 align-items-center" ng-repeat="user in $ctrl.users | filter:search">
             
-            <button class="btn btn-link badge" data-toggle="modal" data-ng-click="" data-target="#modalEditUser"><i class="fas fa-pencil-alt"></i></button>
+            <button class="btn btn-link badge" data-toggle="modal" ng-click="show({{user}})" data-target="#modalEditUser"><i class="fas fa-pencil-alt"></i></button>
             
             <div class="card-img-left flex-auto d-none d-lg-block"><i class="fas fa-user fa-7x"></i></div>
             
@@ -46,7 +46,7 @@
             <div class="modal-body mx-3">
                 <div class="md-form mb-4">
                     <label>Name</label>
-                    <input type="text" class="form-control" id="name" ng-model="user.name"/>
+                    <input type="text" class="form-control" id="name" ng-value="{{userData.name}}" ng-model="user.name"/>
                 </div>
                 <div class="md-form mb-4">
                     <label>Contact No</label>
