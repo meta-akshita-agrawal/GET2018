@@ -10,30 +10,19 @@ angular.module('userList').
                 self.users = response.data;
             });
 
-            $scope.putData=function(){
-                var userData={
-                    "id":9,
-                    "name":"akshitaag",
-                    "phone":"978977897",
-                    "location":"mumbai"
-                };
-            
-                // $http.post('users/users.json',JSON.stringify(data)).then(function(response){
-                //     if(response.data){
-                //         $scope.msg="succesfull";
-                //     }
-                //     else{
-                //         $scope.msg="error";
-                //     }
-                // });
-
-
+            $scope.postData=function(){
                 $http({
-                    method:'PUT',
-                    url:'http://localhost:3000/users/9',
-                    data: userData,
+                    method:'POST',
+                    url:'http://localhost:3000/users/',
+                    data: $scope.user,
                     dataType:'json'
                 });
+
+                window.location.reload();
             };
+
+            $scope.putData=function(){
+                
+            }
         }
     });
