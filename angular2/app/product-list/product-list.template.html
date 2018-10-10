@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row mt-4">
+        <aside class="col-md-3 px-0" style="width:18rem;">
+            <div class="list-group">
+                <button class="list-group-item list-group-item-action active" ng-click="filter:'Bread':category">All categories</button>
+                <a href="#" class="list-group-item list-group-item-action">Bread</a>
+                <a href="#" class="list-group-item list-group-item-action">Dairy</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">Fruits</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">Seasonings and Spices</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">Vegetables</a>
+                </div>
+        </aside>
+        <div class="col-md-8 mx-4">
+                <div class="row">
+                <div class="card col-md-5 d-flex px-0 mx-2 mb-4" ng-repeat="product in $ctrl.products | filter:search">
+                    <img class="card-img-top" src="{{product.imageUrl}}" height="40%"/>
+                    <div class="card-body">
+                        <h4 class="card-title">{{product.title}}</h4>
+                        <span class="card-text mb-0">{{product.price}}</p>
+                    </div>
+                        <button class="btn btn-secondary btn-lg btn-block rounded-bottom" >ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        

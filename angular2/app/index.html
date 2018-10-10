@@ -1,4 +1,4 @@
-<html>
+<html ng-app="shoppingApp">
     <head>
         <link rel="stylesheet" href="Stylesheet/style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -9,6 +9,12 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+    
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="app.module.js"></script>
+        <script src="product-list/product-list.module.js"></script>
+        <script src="product-list/product-list.component.js"></script>
+
     </head>
     <body>
         <header class="blog-header py-3 border-bottom">
@@ -17,31 +23,6 @@
                 <div class="col-1 py-0 my-2"><i class="fas fa-shopping-cart fa-md"></i></div>
             </div>
         </header>
-        <div class="container">
-            <div class="row mt-4">
-                <div class="card col-md-3">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">All categories</li>
-                        <li class="list-group-item">Bread</li>
-                        <li class="list-group-item">Dairy</li>
-                        <li class="list-group-item">Fruits</li> 
-                        <li class="list-group-item">Seasonings and Spices</li>
-                        <li class="list-group-item">Vegetables</li>
-                    </ul> 
-                </div>
-                <div class="col-md-8">
-                    <div class="card" style="width:15rem;">
-                        <img class="card-img-top" src="spinach.jpg" width="150px"/>
-                        <div class="card-body">
-                            <h4>Spinach</h4>
-                            <p>$2.50</p>
-                        </div>
-                        <div class="card-footer">
-                            <button>Add cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <product-list></product-list>  
     </body>
 </html>
