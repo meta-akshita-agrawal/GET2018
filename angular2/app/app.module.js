@@ -1,3 +1,5 @@
 angular.module('shoppingApp',[
-    'productList'
+    'ngRoute',
+    'productList',
+    'cartDetail'
 ]);

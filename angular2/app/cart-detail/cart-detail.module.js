@@ -1,5 +1,5 @@
 'use strict';
 
-angular.module('productList',[
+angular.module('cartDetail',[
     'ngRoute'
 ]);

@@ -9,20 +9,25 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
-    
+        <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-route.js"></script> -->
+        <!-- <script src="//code.angularjs.org/X.Y.Z/angular-route.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
         <script src="bower_components/angular/angular.js"></script>
         <script src="app.module.js"></script>
+        <script src="app.config.js"></script>
+        
         <script src="product-list/product-list.module.js"></script>
         <script src="product-list/product-list.component.js"></script>
 
+        <script src="cart-detail/cart-detail.module.js"></script>
+        <script src="cart-detail/cart-detail.component.js"></script>
+
+
+
     </head>
     <body>
-        <header class="blog-header py-3 border-bottom">
-            <div class="row flex-nowrap justify-content-start align-items-start container">
-                <div class="col-1 py-0 my-2"><i class="fas fa-leaf fa-md"></i></div>
-                <div class="col-1 py-0 my-2"><i class="fas fa-shopping-cart fa-md"></i></div>
-            </div>
-        </header>
-        <product-list></product-list>  
+        
+        <div ng-view></div>
     </body>
 </html>
