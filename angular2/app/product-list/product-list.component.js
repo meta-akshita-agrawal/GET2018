@@ -11,9 +11,25 @@ angular.module('productList').
                 self.products = response.data;
             });
 
-            this.addCart=function(){
-                console.log("m here");
+            $scope.addCart=function(product){
                 self.count = self.count + 1;
+
+                $http({
+                    method: 'POST',
+                    url:'http://localhost:4000/cart/',
+                    data: product,
+                    dataType:'json'
+                }).then(function successCallback(response){
+                    console.log("successfull");
+                },function errorCallback(response){
+                    if(response.status == 500){
+                        console.log("duplicate id error");
+                        $http({
+                            method:'PUT',
+
+                        })
+                    }
+                });
             }
         }
     });

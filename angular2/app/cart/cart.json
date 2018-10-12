@@ -1,0 +1,10 @@
+{
+  "cart": [
+    {
+      "id": 1,
+      "title": "Spinach",
+      "price": "$2.50",
+      "imageUrl": "img/spinach.jpg"
+    }
+  ]
+}
