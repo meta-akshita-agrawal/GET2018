@@ -1,7 +1,7 @@
 <header class="blog-header py-3 border-bottom">
     <div class="row flex-nowrap justify-content-start align-items-start container">
         <div class="col-1 py-0 my-2"><i class="fas fa-leaf fa-md"></i></div>
-        <a class="col-1 py-0 my-2 btn btn-link" href="#!/products/{{$ctrl.count}}"><i class="fas fa-shopping-cart fa-md"></i><span class="badge badge-warning">{{$ctrl.count}}</span></a>
+        <a class="col-1 py-0 my-2 btn btn-link" href="#!/products/{{$ctrl.cartCount}}"><i class="fas fa-shopping-cart fa-md"></i><span class="badge badge-warning">{{$ctrl.cartCount}}</span></a>
     </div>
 </header>
 
@@ -24,9 +24,9 @@
                     <img class="card-img-top" src="{{product.imageUrl}}" height="40%"/>
                     <div class="card-body">
                         <h4 class="card-title">{{product.title}}</h4>
-                        <span class="card-text mb-0">{{product.price}}</p>
+                        <span class="card-text mb-0">${{product.price}}</p>
                     </div>
-                        <button class="btn btn-secondary btn-lg btn-block rounded-bottom" ng-click="addCart(product)">ADD TO CART</button>
+                    <button class="btn btn-secondary btn-lg btn-block rounded-bottom" ng-click="addCart(product)">ADD TO CART</button>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ angular.module('shoppingApp').
                 when('/products',{
                     template:'<product-list></product-list>'
                 }).
-                when('/products/:productId',{
+                when('/products/:cartCount',{
                     template:'<cart-detail></cart-detail>'
                 }).
                 otherwise('/products');

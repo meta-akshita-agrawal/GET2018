@@ -1,3 +1,50 @@
-<div class="row">
+<!-- <div class="row">
 <div class="col-md-3">Hey<span>{{$ctrl.productId}}</span></div>
+</div> -->
+
+
+<header class="blog-header py-3 border-bottom">
+    <div class="row flex-nowrap justify-content-start align-items-start container">
+        <div class="col-1 py-0 my-2"><i class="fas fa-leaf fa-md"></i></div>
+        <a class="col-1 py-0 my-2 btn btn-link" href="#!/products/{{$ctrl.cartCount}}"><i class="fas fa-shopping-cart fa-md"></i><span class="badge badge-warning">{{$ctrl.cartCount}}</span></a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-4">
+            <h1>Shopping Cart</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card col-md-8 row px-0">
+            <div class="card-header">You have {{$ctrl.cartCount}} items in you cart</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"><p class="font-weight-bold">Product</p></div>
+                    <div class="col-md-4">
+                        <!-- <button class="btn btn-secondary btn-sm btn-block rounded-bottom" ng-click="addCart(product)">ADD TO CART</button> -->
+                        <p class="font-weight-bold">Quantity</p>
+                    </div>
+                    <div class="col-md-2"><p class="font-weight-bold">Price</p></div>
+                </div>
+                <div class="row align-items-center my-4 border-bottom px-0" ng-repeat="item in $ctrl.items">
+                    <div class="col-md-3 my-2"><img src="{{item.imageUrl}}" class="rounded-circle" height="50px"></div>
+                    <div class="col-md-3"><p>{{item.title}}</p></div>
+                    <div class="col-md-4">
+                        <!-- <button class="btn btn-secondary btn-sm btn-block rounded-bottom" ng-click="addCart(product)">ADD TO CART</button> -->
+                        <p>{{item.count}}</p>
+                    </div>
+                    <div class="col-md-2"><p>{{item.price}}</p></div>
+                </div>
+            </div>
+            <div class="card-footer py-0">
+                <div class="row d-flex">
+                    <div class="col-md-2 mr-auto"><button class="btn btn-primary">Check Out</button></div>
+                    <div class="col-md-2 ml-auto"><p>${{$ctrl.totalPrice}}</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -3,8 +3,16 @@
     {
       "id": 1,
       "title": "Spinach",
-      "price": "$2.50",
-      "imageUrl": "img/spinach.jpg"
+      "price": 2.5,
+      "imageUrl": "img/spinach.jpg",
+      "count": 3
+    },
+    {
+      "id": 2,
+      "title": "Bread",
+      "price": 3.5,
+      "imageUrl": "img/spinach.jpg",
+      "count": 2
     }
   ]
 }
