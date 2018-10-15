@@ -11,6 +11,10 @@ angular.module('productList').
                 self.products = response.data;
             });
 
+            $scope.submitFilter=function(){
+                $scope.SearchList = $scope.searchText;
+            }
+
             $scope.addCart=function(product){
                 self.cartCount = self.cartCount + 1;
                 

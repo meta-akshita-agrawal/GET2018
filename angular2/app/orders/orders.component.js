@@ -3,7 +3,7 @@
 angular.module('orders').
     component('orders',{
         templateUrl:"orders/orders.template.html",
-        controller:['$routeParams','$http',function OrdersController($routeParams,$http){
+        controller:['$routeParams','$http','$scope',function OrdersController($routeParams,$http,$scope){
             this.cartCount = $routeParams.cartCount;
             var self=this;
 
@@ -12,6 +12,17 @@ angular.module('orders').
                 console.log(self.orders[0].userId);
             });
 
+            $scope.getOrder=function(orderId){
+            
+                $http.get('http://localhost:3002/orders/'+ orderId).then(function(response){
+                    self.items = response.data.items;
+                    var item;
+                    self.totalPrice=0;
+                    for(item in self.items){
+                        self.totalPrice += self.items[item].price;  
+                    }
+                });
+            }
             //console.log(self.orders[0].user-id);
         }]
     });

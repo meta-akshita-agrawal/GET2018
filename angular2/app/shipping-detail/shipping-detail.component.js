@@ -34,9 +34,18 @@ angular.module('shippingDetail').
                     self.items = response.data;
                 });
 
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+
+                today = mm + '/' + dd + '/' + yyyy;
+
+
                 var orderData={
                     "items":self.items,
-                    "customerName":self.shipping[0].name
+                    "customerName":self.shipping[0].name,
+                    "date":today
                 }
 
                 $http({

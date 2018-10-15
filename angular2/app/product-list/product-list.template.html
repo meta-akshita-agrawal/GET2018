@@ -21,17 +21,17 @@
     <div class="row mt-4">
         <aside class="col-md-3 px-0" style="width:18rem;">
             <div class="list-group">
-                <button class="list-group-item list-group-item-action active">All categories</button>
-                <a href="#" class="list-group-item list-group-item-action">Bread</a>
-                <a href="#" class="list-group-item list-group-item-action">Dairy</a>
-                <a href="#" class="list-group-item list-group-item-action disabled">Fruits</a>
-                <a href="#" class="list-group-item list-group-item-action disabled">Seasonings and Spices</a>
-                <a href="#" class="list-group-item list-group-item-action disabled">Vegetables</a>
+                <button class="list-group-item list-group-item-action active" ng-click="SearchList=all">All categories</button>
+                <button class="list-group-item list-group-item-action" ng-click="SearchList={category:'Bread'}">Bread</button>
+                <button class="list-group-item list-group-item-action" ng-click="SearchList={category:'Dairy'}">Dairy</button>
+                <button class="list-group-item list-group-item-action" ng-click="SearchList={category:'Fruits'}">Fruits</button>
+                <button class="list-group-item list-group-item-action" ng-click="SearchList={category:'Seasonings and Spice'}">Seasonings and Spices</button>
+                <button class="list-group-item list-group-item-action" ng-click="SearchList={category:'Vegetables'}">Vegetables</button>
                 </div>
         </aside>
         <div class="col-md-8 mx-4">
                 <div class="row">
-                <div class="card col-md-5 d-flex px-0 mx-2 mb-4" ng-repeat="product in $ctrl.products">
+                <div class="card col-md-5 d-flex px-0 mx-2 mb-4" ng-repeat="product in $ctrl.products|filter:SearchList">
                     <img class="card-img-top" src="{{product.imageUrl}}" height="40%"/>
                     <div class="card-body">
                         <h4 class="card-title">{{product.title}}</h4>
