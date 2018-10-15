@@ -1,0 +1,11 @@
+{
+  "shipping": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "address1": "street 1",
+      "address2": "orleans road",
+      "city": "new york"
+    }
+  ]
+}

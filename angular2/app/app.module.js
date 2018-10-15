@@ -1,5 +1,8 @@
 angular.module('shoppingApp',[
     'ngRoute',
     'productList',
-    'cartDetail'
+    'cartDetail',
+    'shippingDetail',
+    'orderSuccess',
+    'orders'
 ]);

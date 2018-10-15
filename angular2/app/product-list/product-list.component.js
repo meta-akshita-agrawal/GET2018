@@ -13,13 +13,14 @@ angular.module('productList').
 
             $scope.addCart=function(product){
                 self.cartCount = self.cartCount + 1;
+                
 
                 var cartData = {
                     "id":product.id,
                     "title":product.title,
                     "price":product.price,
                     "imageUrl":product.imageUrl,
-                    "count":self.cartCount
+                    "count":1
                 }
 
                 $http({
@@ -31,7 +32,8 @@ angular.module('productList').
                     console.log("successfull");
                 },function errorCallback(response){
                     if(response.status == 500){
-                        console.log(cartData.id);
+                        cartData.count += 1;
+                        cartData.price = cartData.price * cartData.count;
                         $http({
                             method: 'PUT',
                             url:'http://localhost:4000/cart/' + cartData.id,

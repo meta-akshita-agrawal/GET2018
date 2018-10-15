@@ -1,0 +1,20 @@
+<header class="blog-header py-3 border-bottom">
+    <div class="row flex-nowrap justify-content-start align-items-start container">
+        <div class="col-1 py-0 my-2"><i class="fas fa-leaf fa-md"></i></div>
+        <a class="col-1 py-0 my-2 btn btn-link" href="#!/products/cart/{{$ctrl.cartCount}}"><i class="fas fa-shopping-cart fa-md"></i><span class="badge badge-warning">{{$ctrl.cartCount}}</span></a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row border-bottom"><p class="display-4">Orders</p></div>
+    <div class="row border-bottom d-flex justify-content-around align-items-center py-2">
+        <p class="col-md-3 font-weight-bold my-0">Product</p>
+        <p class="col-md-3 font-weight-bold my-0">Date</p>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="row border-bottom d-flex justify-content-around align-items-center py-2" ng-repeat="order in $ctrl.orders">
+        <p class="col-md-3 my-0">{{order.userId}}</p>
+        <p class="col-md-3 my-0">Date</p>
+        <div class="col-md-3 my-0"><button class="btn btn-link">View</button></div>
+    </div>
+</div>
