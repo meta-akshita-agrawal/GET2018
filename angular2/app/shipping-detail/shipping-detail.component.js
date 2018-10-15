@@ -3,20 +3,21 @@
 angular.module('shippingDetail').
     component('shippingDetail',{
         templateUrl:"shipping-detail/shipping-detail.template.html",
-        controller:['$routeParams','$http','$scope',function ShippingDetailController($routeParams,$http,$scope){
-            this.cartCount = $routeParams.cartCount;
+        controller:function ShippingDetailController($http,$scope){
+            this.cartCount = 0;
 
             var self = this;
-            $http.get('http://localhost:4000/cart').then(function(response){
+            $http.get('http://localhost:3000/cart').then(function(response){
                 self.items = response.data;
                 var item;
                 self.totalPrice=0;
                 for(item in self.items){
-                    self.totalPrice += self.items[item].price;  
+                    self.totalPrice += self.items[item].price;
+                    self.cartCount += self.items[item].count;  
                 }
             });
 
-            $http.get('http://localhost:3001/shipping').then(function(response){
+            $http.get('http://localhost:3000/shipping').then(function(response){
                 self.shipping = response.data;
                 console.log(self.shipping[0].name);
             });
@@ -25,12 +26,12 @@ angular.module('shippingDetail').
                 $http({
                     method:'PUT',
                     data:self.shipping[0],
-                    url:'http://localhost:3001/shipping/'+self.shipping[0].id,
+                    url:'http://localhost:3000/shipping/'+self.shipping[0].id,
                     dataType:'json'
                 }).then(function(response){
                     console.log("successfull");
                 });
-                $http.get('http://localhost:4000/cart').then(function(response){
+                $http.get('http://localhost:3000/cart').then(function(response){
                     self.items = response.data;
                 });
 
@@ -50,7 +51,7 @@ angular.module('shippingDetail').
 
                 $http({
                     method:'POST',
-                    url:'http://localhost:3002/orders',
+                    url:'http://localhost:3000/orders',
                     data:orderData,
                     dataType:'json'
                 });
@@ -58,12 +59,12 @@ angular.module('shippingDetail').
                 var item=1;
                 for(item in self.items){
                     console.log(item.id);
-                    $http.delete('http://localhost:4000/cart/' + self.items[item].id, item).then(function(response){
+                    $http.delete('http://localhost:3000/cart/' + self.items[item].id, item).then(function(response){
                         console.log("successfull");
                     })
                 }
-                window.location="#!/products/order-success/" + 0;   
+                window.location="#!/products/order-success/";   
             }
             
-        }]
+        }
     });

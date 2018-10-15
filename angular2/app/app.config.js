@@ -10,16 +10,16 @@ angular.module('shoppingApp').
                 when('/products',{
                     template:'<product-list></product-list>'
                 }).
-                when('/products/cart/:cartCount',{
+                when('/products/cart/',{
                     template:'<cart-detail></cart-detail>'
                 }).
-                when('/products/shipping/:cartCount',{
+                when('/products/shipping/',{
                     template:'<shipping-detail></shipping-detail>'
                 }).
-                when('/products/order-success/:cartCount',{
+                when('/products/order-success/',{
                     template:'<order-success></order-success>'
                 }).
-                when('/products/orders/:cartCount',{
+                when('/products/orders/',{
                     template:'<orders></orders>'
                 }).
                 otherwise('/products');

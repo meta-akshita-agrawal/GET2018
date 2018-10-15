@@ -11,27 +11,25 @@ angular.module('productList').
                 self.products = response.data;
             });
 
+            $http.get('http://localhost:4000/cart').then(function(response){
+                self.items = response.data;
+                var item;
+                for(item in self.items){
+                    self.cartCount += self.items[item].count;
+                }
+            });
+
             $scope.addCart=function(product){
                 self.cartCount = self.cartCount + 1;
-                
 
 
-
-
-
-                
-
-                //self.increment(cartData);
-
-                
-                //console.log(product.count);
-
-                $http.get('http://localhost:4000/cart/' + product.id).then(function successCallback(response){
+                $http.get('http://localhost:3000/cart/' + product.id).then(function successCallback(response){
                     response.data.count += 1;
-                    response.data.price = response.data.count * response.data.price;
+                    response.data.price = response.data.count * product.price;
+                    console.log(response.data.price);
                     $http({
                         method: 'PUT',
-                        url:'http://localhost:4000/cart/' + product.id,
+                        url:'http://localhost:3000/cart/' + product.id,
                         data: response.data,
                         dataType:'json'
                     });
@@ -47,7 +45,7 @@ angular.module('productList').
 
                         $http({
                             method: 'POST',
-                            url:'http://localhost:4000/cart/',
+                            url:'http://localhost:3000/cart/',
                             data: cartData,
                             dataType:'json'
                         })
