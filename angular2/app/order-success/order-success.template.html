@@ -1,0 +1,24 @@
+<header class="blog-header py-3 border-bottom">
+    <div class="row flex-nowrap mx-4">
+        <div class="col-1 py-0 my-2"><i class="fas fa-leaf fa-md"></i></div>
+        <a class="col-1 py-0 my-2 btn btn-link" href="#!/products/cart/"><i class="fas fa-shopping-cart fa-md"></i><span class="badge badge-warning">{{$ctrl.cartCount}}</span></a>
+        <div class="col-2 ml-auto">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle btn-sm bg-transparent" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    John Doe
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#!/products/orders/">My Orders</a>
+                    <a class="dropdown-item" href="#">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row d-flex flex-column">
+        <p class="display-4 font-weight-bold mb-0">Thank You</p>
+        <p>We receieved your order and will process it within the next 24 hours!</p>
+    </div>
+</div>

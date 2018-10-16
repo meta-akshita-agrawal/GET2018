@@ -1,0 +1,45 @@
+<header class="blog-header py-3 border-bottom">
+    <div class="row flex-nowrap mx-4">
+        <div class="col-1 py-0 my-2"><i class="fas fa-leaf fa-md"></i></div>
+        <a class="col-1 py-0 my-2 btn btn-link" href="#!/products/cart/"><i class="fas fa-shopping-cart fa-md"></i><span class="badge badge-warning">{{$ctrl.cartCount}}</span></a>
+        <div class="col-2 ml-auto">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle btn-sm bg-transparent" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    John Doe
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#!/products/orders/">My Orders</a>
+                    <a class="dropdown-item" href="#">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="container">
+    <div class="row mt-4">
+        <aside class="col-md-3 px-0" style="width:18rem;">
+            <div class="list-group">
+                <button class="list-group-item list-group-item-action active" ng-click="SearchList=all">All categories</button>
+                <button class="list-group-item list-group-item-action" ng-click="SearchList={category:'Bread'}">Bread</button>
+                <button class="list-group-item list-group-item-action" ng-click="SearchList={category:'Dairy'}">Dairy</button>
+                <button class="list-group-item list-group-item-action" ng-click="SearchList={category:'Fruits'}">Fruits</button>
+                <button class="list-group-item list-group-item-action" ng-click="SearchList={category:'Seasonings and Spice'}">Seasonings and Spices</button>
+                <button class="list-group-item list-group-item-action" ng-click="SearchList={category:'Vegetables'}">Vegetables</button>
+                </div>
+        </aside>
+        <div class="col-md-8 mx-4">
+                <div class="row">
+                <div class="card col-md-5 d-flex px-0 mx-2 mb-4" ng-repeat="product in $ctrl.products|filter:SearchList">
+                    <img class="card-img-top" src="{{product.imageUrl}}" height="40%"/>
+                    <div class="card-body">
+                        <h4 class="card-title">{{product.title}}</h4>
+                        <span class="card-text mb-0">${{product.price}}</p>
+                    </div>
+                    <button class="btn btn-secondary btn-lg btn-block rounded-bottom" ng-click="addCart(product)">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        

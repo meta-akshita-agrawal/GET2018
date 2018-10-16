@@ -1,0 +1,59 @@
+<header class="blog-header py-3 border-bottom">
+    <div class="row flex-nowrap mx-4">
+        <div class="col-1 py-0 my-2"><i class="fas fa-leaf fa-md"></i></div>
+        <a class="col-1 py-0 my-2 btn btn-link" href="#!/products/cart/"><i class="fas fa-shopping-cart fa-md"></i><span class="badge badge-warning">{{$ctrl.cartCount}}</span></a>
+        <div class="col-2 ml-auto">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle btn-sm bg-transparent" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    John Doe
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#!/products/orders/">My Orders</a>
+                    <a class="dropdown-item" href="#">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-4">
+            <h1>Shopping Cart</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card col-md-8 row px-0 my-4">
+            <div class="card-header py-0 bg-transparent d-flex align-items-center justify-content-between">
+                
+                <p class="col-md-4">You have {{$ctrl.cartCount}} items in you cart</p>
+                <button class="btn btn-light btn-sm col-md-3" ng-click="deleteAll()">Clear Shopping cart</button>
+                
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"><p class="font-weight-bold">Product</p></div>
+                    <div class="col-md-4">
+                        <!-- <button class="btn btn-secondary btn-sm btn-block rounded-bottom" ng-click="addCart(product)">ADD TO CART</button> -->
+                        <p class="font-weight-bold">Quantity</p>
+                    </div>
+                    <div class="col-md-2"><p class="font-weight-bold">Price</p></div>
+                </div>
+                <div class="row align-items-center my-4 border-bottom px-0" ng-repeat="item in $ctrl.items">
+                    <div class="col-md-3 my-2"><img src="{{item.imageUrl}}" class="rounded-circle" height="50px"></div>
+                    <div class="col-md-3"><p>{{item.title}}</p></div>
+                    <div class="col-md-4">
+                        <!-- <button class="btn btn-secondary btn-sm btn-block rounded-bottom" ng-click="addCart(product)">ADD TO CART</button> -->
+                        <p>{{item.count}}</p>
+                    </div>
+                    <div class="col-md-2"><p>${{item.price}}</p></div>
+                </div>
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-2 mr-auto"><a class="btn btn-primary" href="#!/products/shipping/">Check Out</a></div>
+                    <div class="col-md-2 ml-auto"><p>${{$ctrl.totalPrice}}</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

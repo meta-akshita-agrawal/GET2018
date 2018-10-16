@@ -1,0 +1,219 @@
+{
+  "cart": [],
+  "products": [
+    {
+      "id": 1,
+      "title": "Spinach",
+      "price": 2.5,
+      "imageUrl": "img/spinach.jpg",
+      "category": "Vegetables"
+    },
+    {
+      "id": 2,
+      "title": "Freshly Baked Bread",
+      "price": 3.5,
+      "imageUrl": "img/Bread.jpg",
+      "category": "Bread"
+    },
+    {
+      "id": 3,
+      "title": "Saffron",
+      "price": 4.5,
+      "imageUrl": "img/saffron.jpg",
+      "category": "Seasonings and Spice"
+    },
+    {
+      "id": 4,
+      "title": "Mango",
+      "price": 3,
+      "imageUrl": "img/mango.jpg",
+      "category": "Fruits"
+    },
+    {
+      "id": 5,
+      "title": "Butter",
+      "price": 5.5,
+      "imageUrl": "img/butter.jpg",
+      "category": "Dairy"
+    }
+  ],
+  "shipping": [
+    {
+      "id": 1,
+      "name": "akshita bsdfjkds",
+      "address1": "street 1",
+      "address2": "orleans road",
+      "city": "new york"
+    }
+  ],
+  "orders": [
+    {
+      "items": [
+        {
+          "id": 1,
+          "title": "Spinach",
+          "price": 2.5,
+          "imageUrl": "img/spinach.jpg",
+          "count": 1
+        },
+        {
+          "id": 3,
+          "title": "Spice",
+          "price": 9,
+          "imageUrl": "img/spinach.jpg",
+          "count": 2
+        }
+      ],
+      "customerName": "John Smithhh",
+      "date": "10/15/2018",
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "id": 1,
+          "title": "Spinach",
+          "price": 2.5,
+          "imageUrl": "img/spinach.jpg",
+          "count": 1
+        },
+        {
+          "id": 2,
+          "title": "Bread",
+          "price": 3.5,
+          "imageUrl": "img/spinach.jpg",
+          "count": 1
+        }
+      ],
+      "customerName": "John Swan",
+      "date": "10/15/2018",
+      "id": 2
+    },
+    {
+      "items": [
+        {
+          "id": 1,
+          "title": "Spinach",
+          "price": 2.5,
+          "imageUrl": "img/spinach.jpg",
+          "count": 1
+        },
+        {
+          "id": 2,
+          "title": "Bread",
+          "price": 3.5,
+          "imageUrl": "img/spinach.jpg",
+          "count": 1
+        },
+        {
+          "id": 3,
+          "title": "Spice",
+          "price": 4.5,
+          "imageUrl": "img/spinach.jpg",
+          "count": 1
+        }
+      ],
+      "customerName": "Johh  snow",
+      "date": "10/15/2018",
+      "id": 3
+    },
+    {
+      "items": [
+        {
+          "id": 4,
+          "title": "Mango",
+          "price": 3,
+          "imageUrl": "img/mango.jpg",
+          "count": 1
+        },
+        {
+          "id": 5,
+          "title": "Butter",
+          "price": 5.5,
+          "imageUrl": "img/butter.jpg",
+          "count": 1
+        }
+      ],
+      "customerName": "akshita",
+      "date": "10/15/2018",
+      "id": 4
+    },
+    {
+      "items": [
+        {
+          "id": 1,
+          "title": "Spinach",
+          "price": 2.5,
+          "imageUrl": "img/spinach.jpg",
+          "count": 1
+        }
+      ],
+      "customerName": "akshitadf",
+      "date": "10/15/2018",
+      "id": 5
+    },
+    {
+      "items": [
+        {
+          "id": 1,
+          "title": "Spinach",
+          "price": 2.5,
+          "imageUrl": "img/spinach.jpg",
+          "count": 1
+        },
+        {
+          "id": 4,
+          "title": "Mango",
+          "price": 3,
+          "imageUrl": "img/mango.jpg",
+          "count": 1
+        }
+      ],
+      "customerName": "akshitadf",
+      "date": "2018-10-15T07:17:46.438Z",
+      "id": 6
+    },
+    {
+      "items": [
+        {
+          "id": 3,
+          "title": "Saffron",
+          "price": 108,
+          "imageUrl": "img/saffron.jpg",
+          "count": 4
+        },
+        {
+          "id": 1,
+          "title": "Spinach",
+          "price": 2.5,
+          "imageUrl": "img/spinach.jpg",
+          "count": 1
+        }
+      ],
+      "customerName": "akshita agrawal",
+      "date": "10/15/2018",
+      "id": 7
+    },
+    {
+      "items": [
+        {
+          "id": 1,
+          "title": "Spinach",
+          "price": 5,
+          "imageUrl": "img/spinach.jpg",
+          "count": 2
+        },
+        {
+          "id": 4,
+          "title": "Mango",
+          "price": 3,
+          "imageUrl": "img/mango.jpg",
+          "count": 1
+        }
+      ],
+      "customerName": "akshita bsdfjkds",
+      "date": "10/15/2018",
+      "id": 8
+    }
+  ]
+}

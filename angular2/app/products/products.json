@@ -1,0 +1,39 @@
+{
+    "products":[
+        {
+            "id":1,
+            "title":"Spinach",
+            "price":2.50,
+            "imageUrl":"img/spinach.jpg",
+            "category":"Vegetables"
+        },
+        {
+            "id":2,
+            "title":"Freshly Baked Bread",
+            "price":3.50,
+            "imageUrl":"img/Bread.jpg",
+            "category":"Bread"
+        },
+        {
+            "id":3,
+            "title":"Saffron",
+            "price":4.50,
+            "imageUrl":"img/saffron.jpg",
+            "category":"Seasonings and Spice"
+        },
+        {
+            "id":4,
+            "title":"Mango",
+            "price":3.00,
+            "imageUrl":"img/mango.jpg",
+            "category":"Fruits"
+        },
+        {
+            "id":5,
+            "title":"Butter",
+            "price":5.50,
+            "imageUrl":"img/butter.jpg",
+            "category":"Dairy"
+        }
+    ]
+}
