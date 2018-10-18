@@ -1,0 +1,42 @@
+/* body{
+    background-color: gray;
+} */
+/* html{
+    font-size: 1rem;
+} */
+.wrapper{
+    overflow: auto;
+}
+
+.nav-link:active,.nav-link:focus {
+    text-decoration: none !important;
+    box-shadow: none;
+    color:royalblue;
+    background-color: rgba(65, 105, 225,0.2);
+    
+ }
+
+ .nav-link:hover{
+    text-decoration: none !important;
+    box-shadow: none;
+    color:royalblue;
+ }
+
+ .nav-link{
+     color:rgb(77, 75, 75);
+     /* font-size: 1.2rem; */
+ }
+
+ .fa-fw{
+    padding-right: 2rem;
+ }
+
+ .nav-link-badge{
+     background-color: royalblue;
+     color:white;
+ }
+
+ header{
+     background-color:royalblue;
+     height:100px;
+ }
